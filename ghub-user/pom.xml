@@ -10,6 +10,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>ghub-user</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>user-dao</module>
+        <module>user-service</module>
+        <module>user-service-impl</module>
+    </modules>
 
 
 </project>

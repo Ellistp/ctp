@@ -11,6 +11,7 @@
     <modules>
         <module>ghub-common</module>
         <module>ghub-user</module>
+        <module>ghub-web</module>
     </modules>
 
 
