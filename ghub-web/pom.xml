@@ -31,7 +31,7 @@
         </dependency>
         <dependency>
             <groupId>com.ctp</groupId>
-            <artifactId>ghub-user</artifactId>
+            <artifactId>user-service</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
