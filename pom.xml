@@ -53,6 +53,8 @@
         <dep.ver.fastjson>1.2.11</dep.ver.fastjson>
         <dep.ver.jedis>2.9.0</dep.ver.jedis>
         <dep.ver.redis>1.8.8.RELEASE</dep.ver.redis>
+        <dep.ver.jackson-mapper-asl>1.9.13</dep.ver.jackson-mapper-asl>
+        <dep.ver.jackson-core-asl>1.9.13</dep.ver.jackson-core-asl>
 
         <jdk.ver>1.8</jdk.ver>
         <encoding>UTF-8</encoding>
@@ -63,6 +65,17 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.codehaus.jackson</groupId>
+                <artifactId>jackson-mapper-asl</artifactId>
+                <version>${dep.ver.jackson-mapper-asl}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.codehaus.jackson</groupId>
+                <artifactId>jackson-core-asl</artifactId>
+                <version>${dep.ver.jackson-core-asl}</version>
+            </dependency>
             <!-- spring -->
             <dependency>
                 <groupId>org.springframework</groupId>
