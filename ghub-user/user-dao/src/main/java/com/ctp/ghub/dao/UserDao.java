@@ -1,12 +1,12 @@
 package com.ctp.ghub.dao;
 
 import com.ctp.ghub.model.UserDO;
-import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 /**
  * Created by Administrator on 2018/5/12 0012.
  */
-@Mapper
+@Repository
 public interface UserDao {
 
     /**

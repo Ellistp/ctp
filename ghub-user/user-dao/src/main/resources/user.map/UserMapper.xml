@@ -18,7 +18,7 @@
     </sql>
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.ctp.ghub.model.UserDO" >
-        insert into user (
+        insert into acc_user (
         gmt_create,
         gmt_modified,
         name
@@ -31,12 +31,12 @@
     </insert>
 
     <delete id="delete" parameterType="java.lang.Long" >
-        delete from user
+        delete from acc_user
         where id = #{id}
     </delete>
 
     <update id="update" parameterType="com.ctp.ghub.model.UserDO" >
-        UPDATE user
+        UPDATE acc_user
         SET gmt_modified = now()
         WHERE id = #{id}
     </update>
@@ -44,7 +44,7 @@
     <select id="selectById" resultMap="BaseUserResultMap" parameterType="java.lang.Long" >
         select
         <include refid="cols" />
-        from user
+        from acc_user
         where id = #{id}
     </select>
 
