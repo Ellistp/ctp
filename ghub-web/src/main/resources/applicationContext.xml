@@ -5,7 +5,7 @@
 	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
 
     <import resource="classpath:spring-base.xml"/>
-
+    <import resource="classpath:spring-user-dao.xml"/>
     <import resource="classpath:spring-user-service-impl.xml"/>
 
 </beans>

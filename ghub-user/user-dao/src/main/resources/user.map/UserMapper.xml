@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ctp.ghub.dao.UserDao" >
+
+    <resultMap id="BaseUserResultMap" type="com.ctp.ghub.model.UserDO" >
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP"/>
+        <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="cols" >
+        id,
+        gmt_create,
+        gmt_modified,
+        name
+    </sql>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.ctp.ghub.model.UserDO" >
+        insert into user (
+        gmt_create,
+        gmt_modified,
+        name
+        )
+        values (
+        now(),
+        now(),
+        #{name}
+        )
+    </insert>
+
+    <delete id="delete" parameterType="java.lang.Long" >
+        delete from user
+        where id = #{id}
+    </delete>
+
+    <update id="update" parameterType="com.ctp.ghub.model.UserDO" >
+        UPDATE user
+        SET gmt_modified = now()
+        WHERE id = #{id}
+    </update>
+
+    <select id="selectById" resultMap="BaseUserResultMap" parameterType="java.lang.Long" >
+        select
+        <include refid="cols" />
+        from user
+        where id = #{id}
+    </select>
+
+</mapper>

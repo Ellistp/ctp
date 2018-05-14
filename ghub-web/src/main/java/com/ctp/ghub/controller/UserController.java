@@ -20,6 +20,7 @@ public class UserController {
     @RequestMapping(value = "/getUser",method = RequestMethod.GET)
     @ResponseBody
     public String getUser(){
-        return "chengtianping";
+        String name = userService.selectById(1L).getName();
+        return name;
     }
 }
