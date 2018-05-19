@@ -18,6 +18,6 @@
     <dubbo:registry address="127.0.0.1:2181" />
 
     <!-- 生成远程服务代理，可以和本地bean一样使用demoService -->
-    <dubbo:reference id="userService" interface="com.ctp.ghub.UserService" />
-    <dubbo:reference id="userRoleRelationService" interface="com.ctp.ghub.UserRoleRelationService" />
+    <dubbo:reference id="userService" interface="com.ctp.ghub.UserService" timeout="1200000"/>
+    <dubbo:reference id="userRoleRelationService" interface="com.ctp.ghub.UserRoleRelationService" timeout="1200000"/>
 </beans>
