@@ -17,6 +17,10 @@
         <module>user-service-impl</module>
     </modules>
 
+    <properties>
+        <!-- 设置默认编码 -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>com.ctp</groupId>

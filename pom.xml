@@ -57,7 +57,8 @@
         <dep.ver.jackson-core-asl>1.9.13</dep.ver.jackson-core-asl>
 
         <jdk.ver>1.8</jdk.ver>
-        <encoding>UTF-8</encoding>
+        <!-- 设置默认编码 -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <center.project.name>${project.artifactId}</center.project.name>
         <profiles.dir>src/profiles</profiles.dir>
         <jackson.version>2.6.0</jackson.version>
@@ -65,12 +66,6 @@
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>org.apache.ibatis</groupId>
-                <artifactId>ibatis-core</artifactId>
-                <version>3.0</version>
-            </dependency>
-
             <dependency>
                 <groupId>org.codehaus.jackson</groupId>
                 <artifactId>jackson-mapper-asl</artifactId>
