@@ -16,45 +16,34 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <dep.ver.lombok>1.16.10</dep.ver.lombok>
-        <dep.ver.druid>1.0.1</dep.ver.druid>
-        <dep.ver.mysql>5.1.26</dep.ver.mysql>
-        <dep.ver.springframework>4.2.5.RELEASE</dep.ver.springframework>
-        <dep.ver.mybatis>3.4.5</dep.ver.mybatis>
-        <dep.ver.mybatis-spring>1.3.0</dep.ver.mybatis-spring>
-        <dep.ver.pagehelper>4.1.6</dep.ver.pagehelper>
-        <dep.ver.aspectjrt>1.5.4</dep.ver.aspectjrt>
-        <dep.ver.aspectjweaver>1.8.0</dep.ver.aspectjweaver>
-        <dep.ver.servlet>3.1.0</dep.ver.servlet>
-        <dep.ver.orika-core>1.4.6</dep.ver.orika-core>
-        <dep.ver.javassist>3.20.0-GA</dep.ver.javassist>
-        <dep.ver.paranamer>2.7</dep.ver.paranamer>
-        <dep.ver.concurrentlinkedhashmap-lru>1.4.2</dep.ver.concurrentlinkedhashmap-lru>
-        <dep.ver.gson>2.2.4</dep.ver.gson>
-        <dep.ver.guava>15.0</dep.ver.guava>
-        <dep.ver.slf4j>1.7.21</dep.ver.slf4j>
-        <dep.ver.logback>1.1.7</dep.ver.logback>
-        <dep.ver.log4j>1.2.12</dep.ver.log4j>
-        <dep.ver.slf4j-log4j12>1.7.5</dep.ver.slf4j-log4j12>
-        <dep.ver.logback-ext-spring>0.1.2</dep.ver.logback-ext-spring>
-        <dep.ver.dubbo>2.5.3</dep.ver.dubbo>
-        <dep.ver.zookeeper>3.4.8</dep.ver.zookeeper>
-        <dep.ver.zkclient>0.8</dep.ver.zkclient>
-        <dep.ver.commons-lang3>3.1</dep.ver.commons-lang3>
-        <dep.ver.jackson>1.9.12</dep.ver.jackson>
-        <dep.ver.shiro>1.2.3</dep.ver.shiro>
-        <dep.ver.freemarker>2.3.22</dep.ver.freemarker>
-        <dep.ver.commons-beanutils>1.9.2</dep.ver.commons-beanutils>
-        <dep.ver.junit>4.11</dep.ver.junit>
-        <dep.ver.mockito>1.10.19</dep.ver.mockito>
-        <dep.ver.joda-time>2.9.3</dep.ver.joda-time>
-        <dep.ver.commons-collections4>4.1</dep.ver.commons-collections4>
-        <dep.ver.httpclient>4.5.2</dep.ver.httpclient>
-        <dep.ver.fastjson>1.2.11</dep.ver.fastjson>
-        <dep.ver.jedis>2.9.0</dep.ver.jedis>
-        <dep.ver.redis>1.8.8.RELEASE</dep.ver.redis>
-        <dep.ver.jackson-mapper-asl>1.9.13</dep.ver.jackson-mapper-asl>
-        <dep.ver.jackson-core-asl>1.9.13</dep.ver.jackson-core-asl>
+        <druid.version>1.0.1</druid.version>
+        <mysql.version>5.1.26</mysql.version>
+        <springframework.version>4.2.5.RELEASE</springframework.version>
+        <mybatis.version>3.4.5</mybatis.version>
+        <mybatis-spring.version>1.3.0</mybatis-spring.version>
+        <pagehelper.version>4.1.6</pagehelper.version>
+        <aspectjrt.version>1.5.4</aspectjrt.version>
+        <gson.version>2.2.4</gson.version>
+        <guava.version>15.0</guava.version>
+        <slf4j.version>1.7.25</slf4j.version>
+        <logback.version>1.1.7</logback.version>
+        <dubbo.version>2.5.3</dubbo.version>
+        <zookeeper.version>3.4.8</zookeeper.version>
+        <zkclient.version>0.8</zkclient.version>
+        <commons-lang3.version>3.1</commons-lang3.version>
+        <jackson.version>1.9.12</jackson.version>
+        <shiro.version>1.2.3</shiro.version>
+        <freemarker.version>2.3.22</freemarker.version>
+        <commons-beanutils.version>1.9.2</commons-beanutils.version>
+        <junit.version>4.11</junit.version>
+        <mockito.version>1.10.19</mockito.version>
+        <commons-collections4.version>4.1</commons-collections4.version>
+        <httpclient.version>4.5.2</httpclient.version>
+        <fastjson.version>1.2.11</fastjson.version>
+        <jedis.version>2.9.0</jedis.version>
+        <redis.version>1.8.8.RELEASE</redis.version>
+        <jackson-mapper-asl.version>1.9.13</jackson-mapper-asl.version>
+        <jackson-core-asl.version>1.9.13</jackson-core-asl.version>
 
         <jdk.ver>1.8</jdk.ver>
         <!-- 设置默认编码 -->
@@ -69,19 +58,19 @@
             <dependency>
                 <groupId>org.codehaus.jackson</groupId>
                 <artifactId>jackson-mapper-asl</artifactId>
-                <version>${dep.ver.jackson-mapper-asl}</version>
+                <version>${jackson-mapper-asl.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>org.codehaus.jackson</groupId>
                 <artifactId>jackson-core-asl</artifactId>
-                <version>${dep.ver.jackson-core-asl}</version>
+                <version>${jackson-core-asl.version}</version>
             </dependency>
             <!-- spring -->
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-core</artifactId>
-                <version>${dep.ver.springframework}</version>
+                <version>${springframework.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>commons-logging</groupId>
@@ -92,80 +81,80 @@
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-context</artifactId>
-                <version>${dep.ver.springframework}</version>
+                <version>${springframework.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-context-support</artifactId>
-                <version>${dep.ver.springframework}</version>
+                <version>${springframework.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-web</artifactId>
-                <version>${dep.ver.springframework}</version>
+                <version>${springframework.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-webmvc</artifactId>
-                <version>${dep.ver.springframework}</version>
+                <version>${springframework.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-jdbc</artifactId>
-                <version>${dep.ver.springframework}</version>
+                <version>${springframework.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-tx</artifactId>
-                <version>${dep.ver.springframework}</version>
+                <version>${springframework.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-aspects</artifactId>
-                <version>${dep.ver.springframework}</version>
+                <version>${springframework.version}</version>
             </dependency>
             <!-- spring -->
             <!-- db -->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid</artifactId>
-                <version>${dep.ver.druid}</version>
+                <version>${druid.version}</version>
             </dependency>
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
-                <version>${dep.ver.mysql}</version>
+                <version>${mysql.version}</version>
             </dependency>
             <!-- db -->
             <!-- mybatis -->
             <dependency>
                 <groupId>org.mybatis</groupId>
                 <artifactId>mybatis</artifactId>
-                <version>${dep.ver.mybatis}</version>
+                <version>${mybatis.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.mybatis</groupId>
                 <artifactId>mybatis-spring</artifactId>
-                <version>${dep.ver.mybatis-spring}</version>
+                <version>${mybatis-spring.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper</artifactId>
-                <version>${dep.ver.pagehelper}</version>
+                <version>${pagehelper.version}</version>
             </dependency>
             <!-- mybatis -->
             <!-- apache -->
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
-                <version>${dep.ver.commons-lang3}</version>
+                <version>${commons-lang3.version}</version>
             </dependency>
             <!-- apache -->
             <!-- commons-beanutils -->
             <dependency>
                 <groupId>commons-beanutils</groupId>
                 <artifactId>commons-beanutils</artifactId>
-                <version>${dep.ver.commons-beanutils}</version>
+                <version>${commons-beanutils.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>commons-logging</groupId>
@@ -174,33 +163,22 @@
                 </exclusions>
             </dependency>
             <!-- commons-beanutils -->
-            <!-- log -->
+            <!-- slf4j -->
             <dependency>
                 <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-api</artifactId>
-                <version>${dep.ver.slf4j}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>log4j-over-slf4j</artifactId>
-                <version>${dep.ver.slf4j}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>jcl-over-slf4j</artifactId>
-                <version>${dep.ver.slf4j}</version>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>${slf4j.version}</version>
             </dependency>
             <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-classic</artifactId>
-                <version>${dep.ver.logback}</version>
+                <version>${logback.version}</version>
             </dependency>
-            <!-- log -->
             <!-- dubbo -->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>dubbo</artifactId>
-                <version>${dep.ver.dubbo}</version>
+                <version>${dubbo.version}</version>
                 <exclusions>
                     <exclusion>
                         <artifactId>spring</artifactId>
@@ -217,7 +195,7 @@
             <dependency>
                 <groupId>org.apache.zookeeper</groupId>
                 <artifactId>zookeeper</artifactId>
-                <version>${dep.ver.zookeeper}</version>
+                <version>${zookeeper.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>log4j</groupId>
@@ -228,7 +206,7 @@
             <dependency>
                 <groupId>com.101tec</groupId>
                 <artifactId>zkclient</artifactId>
-                <version>${dep.ver.zkclient}</version>
+                <version>${zkclient.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>log4j</groupId>
@@ -241,70 +219,50 @@
             <dependency>
                 <groupId>org.codehaus.jackson</groupId>
                 <artifactId>jackson-core-asl</artifactId>
-                <version>${dep.ver.jackson}</version>
+                <version>${jackson.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.codehaus.jackson</groupId>
                 <artifactId>jackson-mapper-asl</artifactId>
-                <version>${dep.ver.jackson}</version>
+                <version>${jackson.version}</version>
             </dependency>
             <!-- jackson -->
             <!-- jedis-->
             <dependency>
                 <groupId>redis.clients</groupId>
                 <artifactId>jedis</artifactId>
-                <version>${dep.ver.jedis}</version>
+                <version>${jedis.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.data</groupId>
                 <artifactId>spring-data-redis</artifactId>
-                <version>${dep.ver.redis}</version>
+                <version>${redis.version}</version>
             </dependency>
 
             <!-- aspectj -->
             <dependency>
                 <groupId>aspectj</groupId>
                 <artifactId>aspectjrt</artifactId>
-                <version>${dep.ver.aspectjrt}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.aspectj</groupId>
-                <artifactId>aspectjweaver</artifactId>
-                <version>${dep.ver.aspectjweaver}</version>
+                <version>${aspectjrt.version}</version>
             </dependency>
             <!-- aspectj -->
-            <!-- servlet -->
-            <dependency>
-                <groupId>javax.servlet</groupId>
-                <artifactId>javax.servlet-api</artifactId>
-                <version>${dep.ver.servlet}</version>
-                <scope>provided</scope>
-            </dependency>
-            <!-- servlet -->
-            <!-- javassist -->
-            <dependency>
-                <groupId>org.javassist</groupId>
-                <artifactId>javassist</artifactId>
-                <version>${dep.ver.javassist}</version>
-            </dependency>
-            <!-- javassist -->
             <!-- test start -->
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
-                <version>${dep.ver.junit}</version>
+                <version>${junit.version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-test</artifactId>
-                <version>${dep.ver.springframework}</version>
+                <version>${springframework.version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.mockito</groupId>
                 <artifactId>mockito-core</artifactId>
-                <version>${dep.ver.mockito}</version>
+                <version>${mockito.version}</version>
                 <scope>test</scope>
             </dependency>
             <!-- test end -->
@@ -312,41 +270,34 @@
             <dependency>
                 <groupId>com.google.code.gson</groupId>
                 <artifactId>gson</artifactId>
-                <version>${dep.ver.gson}</version>
+                <version>${gson.version}</version>
             </dependency>
             <!-- fastjson-->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
-                <version>${dep.ver.fastjson}</version>
+                <version>${fastjson.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid</artifactId>
-                <version>${dep.ver.druid}</version>
+                <version>${druid.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
-                <version>${dep.ver.guava}</version>
+                <version>${guava.version}</version>
             </dependency>
             <!-- google -->
-            <!-- lombok -->
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${dep.ver.lombok}</version>
-            </dependency>
-            <!-- lombok -->
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-collections4</artifactId>
-                <version>${dep.ver.commons-collections4}</version>
+                <version>${commons-collections4.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpclient</artifactId>
-                <version>${dep.ver.httpclient}</version>
+                <version>${httpclient.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>commons-logging</groupId>
