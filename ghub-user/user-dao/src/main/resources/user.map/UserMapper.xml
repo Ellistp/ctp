@@ -48,4 +48,9 @@
         where id = #{id}
     </select>
 
+    <select id="listAllUserDO" resultMap="BaseUserResultMap">
+        select
+        <include refid="cols" />
+        from acc_user
+    </select>
 </mapper>

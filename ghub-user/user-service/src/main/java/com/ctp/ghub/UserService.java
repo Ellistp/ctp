@@ -2,6 +2,8 @@ package com.ctp.ghub;
 
 import com.ctp.ghub.model.UserDO;
 
+import java.util.List;
+
 /**
  * Created by Administrator on 2018/5/12 0012.
  */
@@ -34,4 +36,10 @@ public interface UserService {
      * @return
      */
     UserDO selectById(Long id);
+
+    /**
+     * 查询所有user 记录
+     * @return
+     */
+    List<UserDO> listAllUserDO();
 }

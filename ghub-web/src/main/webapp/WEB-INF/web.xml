@@ -4,7 +4,6 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          id="WebApp_ID" version="3.0">
   <display-name>ghub web project</display-name>
-
   <!-- 部署applicationContext的xml文件 -->
   <context-param>
     <param-name>contextConfigLocation</param-name>
@@ -21,6 +20,7 @@
   <listener>
     <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
   </listener>
+  <!-- 加载log4j配置文件 -->
 
   <!-- Spring监听器 -->
   <listener>
@@ -46,6 +46,17 @@
     <url-pattern>/*</url-pattern>
   </filter-mapping>
   <!-- 统一编码过滤器 -->
+
+  <!-- 自定义过滤器 -->
+  <filter>
+    <filter-name>ghubFilter</filter-name>
+    <filter-class>com.ctp.ghub.filter.GhubFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>ghubFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <!-- 自定义过滤器 -->
 
   <!-- Spring MVC初始化 -->
   <servlet>

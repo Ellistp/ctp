@@ -3,6 +3,8 @@ package com.ctp.ghub.dao;
 import com.ctp.ghub.model.UserDO;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * Created by Administrator on 2018/5/12 0012.
  */
@@ -36,4 +38,10 @@ public interface UserDao {
      * @return
      */
     UserDO selectById(Long id);
+
+    /**
+     * 查询所有user 记录
+     * @return
+     */
+    List<UserDO> listAllUserDO();
 }
