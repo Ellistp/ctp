@@ -4,7 +4,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
 
-    <import resource="classpath:common-redis.xml"/>
+    <import resource="classpath:redis/common-redis.xml"/>
+    <import resource="classpath:jdbc/common-jdbc.xml"/>
     <import resource="classpath:spring-user-dao.xml"/>
     <import resource="classpath:spring-user-service-impl.xml"/>
     <import resource="classpath:spring-user-dubbo-provider.xml"/>
