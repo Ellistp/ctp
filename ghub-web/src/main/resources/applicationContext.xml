@@ -9,5 +9,4 @@
     <import resource="classpath:spring-user-dao.xml"/>
     <import resource="classpath:spring-user-service-impl.xml"/>
     <import resource="classpath:spring-user-dubbo-provider.xml"/>
-
 </beans>
