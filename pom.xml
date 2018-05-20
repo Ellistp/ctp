@@ -34,7 +34,7 @@
         <shiro.version>1.2.3</shiro.version>
         <freemarker.version>2.3.22</freemarker.version>
         <commons-beanutils.version>1.9.2</commons-beanutils.version>
-        <junit.version>4.11</junit.version>
+        <junit.version>4.12</junit.version>
         <mockito.version>1.10.19</mockito.version>
         <commons-collections4.version>4.1</commons-collections4.version>
         <httpclient.version>4.5.2</httpclient.version>
@@ -52,6 +52,7 @@
         <activemq-pool.version>5.12.1</activemq-pool.version>
         <spring.jms.version>5.0.6.RELEASE</spring.jms.version>
         <jms.version>2.0.1</jms.version>
+        <spring-test.version>4.0.0.RELEASE</spring-test.version>
         <!-- 设置默认编码 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <center.project.name>${project.artifactId}</center.project.name>
@@ -60,6 +61,12 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>${spring-test.version}</version>
+                <scope>test</scope>
+            </dependency>
             <!-- activemq -->
             <dependency>
                 <groupId>org.apache.activemq</groupId>
