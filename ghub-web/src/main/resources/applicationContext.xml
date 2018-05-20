@@ -4,9 +4,15 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
 
+    <!-- common xml -->
     <import resource="classpath:redis/common-redis.xml"/>
     <import resource="classpath:jdbc/common-jdbc.xml"/>
+    <import resource="classpath:activemq/activemq.xml"/>
+    <!-- service xml -->
     <import resource="classpath:spring-user-dao.xml"/>
     <import resource="classpath:spring-user-service-impl.xml"/>
+    <!-- activemq service xml -->
+    <import resource="classpath:spring-activemq-service.xml"/>
+    <!-- dubbo provider xml -->
     <import resource="classpath:spring-user-dubbo-provider.xml"/>
 </beans>
