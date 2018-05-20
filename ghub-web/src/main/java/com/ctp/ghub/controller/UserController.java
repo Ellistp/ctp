@@ -1,6 +1,7 @@
 package com.ctp.ghub.controller;
 
 import com.ctp.ghub.UserService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/api/ghub/user")
 public class UserController {
 
+    private static final Logger logger = Logger.getLogger(UserController.class);
+
     @Autowired
     UserService userService;
 
@@ -21,6 +24,7 @@ public class UserController {
     @ResponseBody
     public String getUser(){
         String name = userService.selectById(1L).getName();
+        logger.info("info ==== /api/ghub/user/getUser ==== name:  " + name);
         return name;
     }
 }
