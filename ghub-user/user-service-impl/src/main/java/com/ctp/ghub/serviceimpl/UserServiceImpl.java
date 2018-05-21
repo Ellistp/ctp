@@ -1,6 +1,6 @@
 package com.ctp.ghub.serviceimpl;
 
-import com.ctp.ghub.UserService;
+import com.ctp.ghub.service.UserService;
 import com.ctp.ghub.dao.UserDao;
 import com.ctp.ghub.model.UserDO;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package com.ctp.ghub.serviceimpl;
 
-import com.ctp.ghub.UserRoleRelationService;
+import com.ctp.ghub.service.UserRoleRelationService;
 import org.springframework.stereotype.Service;
 
 /**

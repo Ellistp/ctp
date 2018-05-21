@@ -2,7 +2,7 @@ package com.ctp.ghub.controller;
 
 import java.util.List;
 
-import com.ctp.ghub.UserService;
+import com.ctp.ghub.service.UserService;
 import com.ctp.ghub.model.Result;
 import com.ctp.ghub.model.UserDO;
 import org.apache.log4j.Logger;
