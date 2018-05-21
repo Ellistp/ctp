@@ -33,4 +33,10 @@ public class UserController {
         logger.info("/api/ghub/user/getUser size:  " + String.valueOf(size));
         return Result.createSuccessResult(String.valueOf(size));
     }
+
+    @RequestMapping(value = "/getTest",method = RequestMethod.GET)
+    @ResponseBody
+    public Result<String> getTest(){
+        return Result.createSuccessResult("测试中。。。。。");
+    }
 }
