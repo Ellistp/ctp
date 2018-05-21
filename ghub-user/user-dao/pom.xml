@@ -15,7 +15,7 @@
     <dependencies>
         <dependency>
             <groupId>com.ctp</groupId>
-            <artifactId>common</artifactId>
+            <artifactId>ghub-common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
