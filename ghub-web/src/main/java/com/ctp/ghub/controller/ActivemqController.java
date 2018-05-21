@@ -7,7 +7,7 @@ import javax.jms.TextMessage;
 
 import com.ctp.ghub.model.Result;
 import com.ctp.ghub.mq.consumer.service.ProducerService;
-import com.ctp.ghub.mq.model.MessageEntity;
+import com.ctp.ghub.model.MessageEntity;
 import com.ctp.ghub.mq.producer.service.ConsumerService;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;

@@ -1,4 +1,4 @@
-package com.ctp.ghub.mq.model;
+package com.ctp.ghub.model;
 
 import java.io.Serializable;
 
