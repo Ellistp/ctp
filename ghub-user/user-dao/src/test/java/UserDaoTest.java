@@ -1,4 +1,5 @@
 import com.ctp.ghub.dao.UserDao;
+import com.ctp.ghub.junit.BaseSpringTest;
 import com.ctp.ghub.model.UserDO;
 import org.junit.Assert;
 import org.junit.Before;
@@ -15,7 +16,7 @@ import java.util.List;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:jdbc/common-jdbc.xml"})
-public class UserDaoTest {
+public class UserDaoTest extends BaseSpringTest{
 
     @Autowired
     UserDao userDao;
