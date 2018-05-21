@@ -1,6 +1,9 @@
 package com.ctp.ghub.controller;
 
+import java.util.List;
+
 import com.ctp.ghub.UserService;
+import com.ctp.ghub.model.Result;
 import com.ctp.ghub.model.UserDO;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +12,6 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import java.util.List;
 
 /**
  * Created by Administrator on 2018/5/12 0012.
@@ -26,10 +27,10 @@ public class UserController {
 
     @RequestMapping(value = "/getUser",method = RequestMethod.GET)
     @ResponseBody
-    public String getUser(){
+    public Result<String> getUser(){
         List<UserDO> userDOList = this.userService.listAllUserDO();
         int size = CollectionUtils.isEmpty(userDOList) == true?0 : userDOList.size();
         logger.info("/api/ghub/user/getUser size:  " + String.valueOf(size));
-        return String.valueOf(size);
+        return Result.createSuccessResult(String.valueOf(size));
     }
 }

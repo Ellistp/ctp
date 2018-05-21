@@ -5,6 +5,7 @@ import javax.jms.Destination;
 import javax.jms.JMSException;
 import javax.jms.TextMessage;
 
+import com.ctp.ghub.model.Result;
 import com.ctp.ghub.mq.consumer.service.ProducerService;
 import com.ctp.ghub.mq.model.MessageEntity;
 import com.ctp.ghub.mq.producer.service.ConsumerService;
@@ -43,17 +44,17 @@ public class ActivemqController {
 
     @RequestMapping(value="/sendMessage",method= RequestMethod.POST)
     @ResponseBody
-    public String producer(@RequestBody MessageEntity messageEntity) {
+    public Result<String> sendMessage(@RequestBody MessageEntity messageEntity) {
         logger.info("正在发送消息，消息内容是：" + messageEntity.getMessage());
         producer.sendMessage(ghubQueueDestination, messageEntity.getMessage());
-        return messageEntity.getMessage();
+        return Result.createSuccessResult(messageEntity.getMessage());
     }
 
     @RequestMapping(value="/receiveMessage",method=RequestMethod.GET)
     @ResponseBody
-    public String queue_receive() throws JMSException {
+    public Result<String> receiveMessage() throws JMSException {
         TextMessage tm = consumer.receiveMessage(ghubQueueDestination);
         logger.info("已接收到消息，消息内容是：" + tm.getText());
-        return tm.getText();
+        return Result.createSuccessResult(tm.getText());
     }
 }
