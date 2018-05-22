@@ -18,7 +18,8 @@
     <!-- 静态资源(js、image等)的访问 -->
     <mvc:default-servlet-handler/>
 
-    <!-- 启动对@AspectJ注解的支持  -->
+    <!-- 启动对@AspectJ注解的支持 proxy-target-class设置为true表示通知spring使用
+    cglib而不是jdk的来生成代理方法，这样AOP可以拦截到Controller -->
     <aop:aspectj-autoproxy proxy-target-class="true"/>
 
     <!-- 使用fastjson 配置 ,支持请求数据类型三种 -->
