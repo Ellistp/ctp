@@ -12,7 +12,7 @@
 
     <context:property-placeholder ignore-unresolvable="true" location="classpath:dubbo/dubbo.properties"/>
     <!-- 提供方应用信息，用于计算依赖关系 -->
-    <dubbo:application name="log-provider"  />
+    <!--<dubbo:application name="log-provider"  />-->
 
     <!-- 使用zookeeper注册中心暴露服务地址 -->
     <dubbo:registry address="${zookeeper.host}" />
