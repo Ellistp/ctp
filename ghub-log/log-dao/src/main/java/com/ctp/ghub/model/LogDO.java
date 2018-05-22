@@ -64,6 +64,86 @@ public class LogDO implements Serializable{
         this.operateDesc = operateDesc;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Date getGmtCreate() {
+        return gmtCreate;
+    }
+
+    public void setGmtCreate(Date gmtCreate) {
+        this.gmtCreate = gmtCreate;
+    }
+
+    public Date getGmtModified() {
+        return gmtModified;
+    }
+
+    public void setGmtModified(Date gmtModified) {
+        this.gmtModified = gmtModified;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public String getModuleName() {
+        return moduleName;
+    }
+
+    public void setModuleName(String moduleName) {
+        this.moduleName = moduleName;
+    }
+
+    public String getIp() {
+        return ip;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getOperateType() {
+        return operateType;
+    }
+
+    public void setOperateType(String operateType) {
+        this.operateType = operateType;
+    }
+
+    public Integer getOperateStatus() {
+        return operateStatus;
+    }
+
+    public void setOperateStatus(Integer operateStatus) {
+        this.operateStatus = operateStatus;
+    }
+
+    public String getOperateDesc() {
+        return operateDesc;
+    }
+
+    public void setOperateDesc(String operateDesc) {
+        this.operateDesc = operateDesc;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) { return true; }
