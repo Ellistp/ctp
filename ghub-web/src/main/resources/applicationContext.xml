@@ -11,8 +11,11 @@
     <!-- service xml -->
     <import resource="classpath:spring-user-dao.xml"/>
     <import resource="classpath:spring-user-service-impl.xml"/>
+    <import resource="classpath:spring-log-dao.xml"/>
+    <import resource="classpath:spring-log-service-impl.xml"/>
     <!-- activemq service xml -->
     <import resource="classpath:spring-activemq-service.xml"/>
     <!-- dubbo provider xml -->
     <import resource="classpath:spring-user-dubbo-provider.xml"/>
+    <import resource="classpath:spring-log-dubbo-provider.xml"/>
 </beans>

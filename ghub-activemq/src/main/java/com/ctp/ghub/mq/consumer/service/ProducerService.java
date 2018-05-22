@@ -1,15 +1,15 @@
 package com.ctp.ghub.mq.consumer.service;
 
-import org.apache.log4j.Logger;
-import org.springframework.jms.core.JmsTemplate;
-import org.springframework.jms.core.MessageCreator;
-import org.springframework.stereotype.Service;
-
 import javax.annotation.Resource;
 import javax.jms.Destination;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.Session;
+
+import org.apache.log4j.Logger;
+import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jms.core.MessageCreator;
+import org.springframework.stereotype.Service;
 
 /**
  * Created by Administrator on 2018/5/20 0020.
@@ -30,6 +30,7 @@ public class ProducerService {
         System.out.println("向队列" + destination.toString() + "发送了消息=======;消息内容是：" + msg);
         logger.info("向队列" + destination.toString() + "发送了消息=======;消息内容是：" + msg);
         jmsTemplate.send(destination, new MessageCreator() {
+            @Override
             public Message createMessage(Session session) throws JMSException {
                 return session.createTextMessage(msg);
             }
@@ -45,6 +46,7 @@ public class ProducerService {
         System.out.println("向队列" +destination+ "发送了消息=======;消息内容是：" + msg);
         logger.info("向队列" + destination + "发送了消息=======;消息内容是：" + msg);
         jmsTemplate.send(new MessageCreator() {
+            @Override
             public Message createMessage(Session session) throws JMSException {
                 return session.createTextMessage(msg);
             }

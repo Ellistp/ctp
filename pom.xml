@@ -13,6 +13,7 @@
         <module>ghub-user</module>
         <module>ghub-web</module>
         <module>ghub-activemq</module>
+        <module>ghub-log</module>
     </modules>
 
     <properties>
@@ -47,7 +48,9 @@
         <activemq-core.version>5.7.0</activemq-core.version>
         <activemq-pool.version>5.12.1</activemq-pool.version>
         <spring.jms.version>5.0.6.RELEASE</spring.jms.version>
+        <aspectj.version>1.7.4.RELEASE</aspectj.version>
         <jms.version>2.0.1</jms.version>
+        <cglig.version>3.2.4</cglig.version>
         <!-- 设置默认编码 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <center.project.name>${project.artifactId}</center.project.name>
@@ -56,6 +59,22 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- Aspectj -->
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjweaver</artifactId>
+                <version>${aspectj.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjrt</artifactId>
+                <version>${aspectj.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cglib</groupId>
+                <artifactId>cglib</artifactId>
+                <version>${cglig.version}</version>
+            </dependency>
             <!-- activemq -->
             <dependency>
                 <groupId>org.apache.activemq</groupId>

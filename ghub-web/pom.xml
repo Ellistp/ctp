@@ -50,6 +50,16 @@
         </dependency>
         <dependency>
             <groupId>com.ctp</groupId>
+            <artifactId>log-service</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.ctp</groupId>
+            <artifactId>log-service-impl</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.ctp</groupId>
             <artifactId>ghub-activemq</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
@@ -101,6 +111,18 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
         </dependency>
     </dependencies>
 
