@@ -48,7 +48,7 @@
         <activemq-core.version>5.7.0</activemq-core.version>
         <activemq-pool.version>5.12.1</activemq-pool.version>
         <spring.jms.version>5.0.6.RELEASE</spring.jms.version>
-        <aspectj.version>1.7.4.RELEASE</aspectj.version>
+        <aspectj.version>1.5.4</aspectj.version>
         <jms.version>2.0.1</jms.version>
         <cglig.version>3.2.4</cglig.version>
         <!-- 设置默认编码 -->
