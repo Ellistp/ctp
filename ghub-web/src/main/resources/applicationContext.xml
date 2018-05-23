@@ -7,7 +7,8 @@
     <!-- common xml -->
     <import resource="classpath:redis/common-redis.xml"/>
     <import resource="classpath:jdbc/common-jdbc.xml"/>
-    <import resource="classpath:activemq/activemq.xml"/>
+    <import resource="classpath:activemq/common-activemq.xml"/>
+    <import resource="classpath:dubbo/common-dubbo.xml"/>
     <!-- service xml -->
     <import resource="classpath:spring-user-dao.xml"/>
     <import resource="classpath:spring-user-service-impl.xml"/>

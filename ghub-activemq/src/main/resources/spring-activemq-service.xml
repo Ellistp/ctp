@@ -10,7 +10,7 @@
     <!-- 扫描注解 -->
     <context:component-scan base-package="com.ctp.ghub.mq" />
     <!-- 导入activemq配置信息 -->
-    <import resource="classpath:activemq/activemq.xml"/>
+    <import resource="classpath:activemq/common-activemq.xml"/>
 
     <!-- 配置消息队列监听者（Queue） -->
     <bean id="queueMessageListener" class="com.ctp.ghub.mq.queue.listener.QueueMessageListener" />
