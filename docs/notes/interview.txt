@@ -6,3 +6,27 @@ springcloud
 jdk1.8
 jvm
 hashmap原理，红黑树是1.8新增的
+
+
+
+1. ArrayList中的elementData数组，LinkedList中指向头结点和尾结点的指针
+   既然用于保存数据的变量都被transient修饰，ArrayList和LinkedList还能不能被序列化呢
+   如果不把elementData申明为transient类型，那么序列化的时候里面的数据都会被序列化，
+   但是elementData这个数组很大程序是存在空值的情况（即size《length），这时如果序列化就会导致磁盘空间被浪费
+   ArrayList将elementData申明为transient，自己重写了writeObject方法，保证只序列化elementData中有数据的那部分
+
+
+2. AVA序列化与反序列化就是JAVA对象与一串字节流之间的相互转换, 我们在程序中创建的JAVA对象只存在于JVM中,
+    当程序退出时, 这些对象也就消失了, 而序列化正是为了将这些对象保存起来以仅将来使用,也可以将已经序列化的对象传送给其他JVM来使用,
+    这些序列化的字节流是于JVM无关的, 也就是说一个JVM序列化的对象可以在另一个JVM中反序列化.
+
+    使用JAVA提供的序列化机制有以下两条需要遵守的条件:
+    该类必须直接实现java.io.Serializable接口或者间接从其继承树中实现该接口(也就是他的某个父类实现了这个接口);
+    对于该类的所有无法序列化的属性(本文指字段field, 而不是严格意义上的属性property, 下同)必须使用transient修饰
+
+    使用JDK提供的序列化机制时需要借助一对I/O流, ObjectOutputStream和ObjectInputStream, 这两个流分别是进行序列化和反序列化操作,
+    通过ObjectOutputStream类的writeObject(obj)方法可以将对象写入到输出流中, 通过ObjectInputStream类的readObject()方法可以从该输入流中反序列化该对象出来
+
+    JDK提供了一种扩展的方法来增加对序列化和反序列化的控制. 那就是可以让序列化的对象实现下面两个固定的方法
+    private void writeObject(ObjectOutputStream oos) throws IOException {}
+       private void readObject(ObjectInputStream ois) throws IOException, ClassNotFoundException{}
