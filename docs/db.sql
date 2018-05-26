@@ -1,3 +1,7 @@
+## 创建ghub数据库 ##
+CREATE DATABASE ghub;
+## 使用ghub数据库 ##
+use ghub;
 ## 用户表 ##
 DROP TABLE IF EXISTS acc_user;
 CREATE TABLE `acc_user` (
