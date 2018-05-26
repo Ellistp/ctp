@@ -69,7 +69,7 @@ public class LogAop {
      */
     @AfterThrowing(pointcut = "controller()", throwing = "exception")
     public void logAfterThrowing(JoinPoint joinPoint, Throwable exception) {
-
+        logger.error("logAfterThrowing " + joinPoint);
     }
 
     /**
