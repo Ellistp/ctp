@@ -1,18 +1,11 @@
 package com.ctp.ghub.aop;
 
-import com.ctp.ghub.model.LogDO;
-import com.ctp.ghub.service.LogService;
-import com.ctp.ghub.utils.HttpUtil;
 import org.apache.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author chengtianping
@@ -20,11 +13,8 @@ import javax.servlet.http.HttpServletResponse;
  * @date 2018/5/22
  */
 @Aspect
-public class LogAop {
-    private static final Logger logger = Logger.getLogger(LogAop.class);
-
-    @Autowired
-    LogService logService;
+public class ControllerAop {
+    private static final Logger logger = Logger.getLogger(ControllerAop.class);
 
     /**
      * 定义所有的 controller 切入点
@@ -42,10 +32,10 @@ public class LogAop {
      * @throws Throwable
      */
     @Before("controller() && args(..,request)")
-    public void logAopBefore(JoinPoint joinPoint, HttpServletRequest request) throws Throwable {
+    public void controllerAopBefore(JoinPoint joinPoint, HttpServletRequest request) throws Throwable {
         if (null != request) {
             if(logger.isInfoEnabled()){
-                logger.info("log aop before " + joinPoint);
+                logger.info("controller aop before " + joinPoint);
             }
         }
     }
@@ -56,9 +46,9 @@ public class LogAop {
      * @param result
      */
     @AfterReturning(pointcut = "controller()", returning = "result")
-    public void afterControllerMethod(JoinPoint joinPoint, Object result) {
+    public void controllerAopAfterReturn(JoinPoint joinPoint, Object result) {
         if(logger.isInfoEnabled()){
-            logger.info("log aop after " + joinPoint);
+            logger.info("controller aop after " + joinPoint);
         }
     }
 
@@ -68,8 +58,8 @@ public class LogAop {
      * @param exception
      */
     @AfterThrowing(pointcut = "controller()", throwing = "exception")
-    public void logAfterThrowing(JoinPoint joinPoint, Throwable exception) {
-        logger.error("logAfterThrowing " + joinPoint);
+    public void controllerAopAfterThrowing(JoinPoint joinPoint, Throwable exception) {
+        logger.error("controllerAopAfterThrowing " + exception);
     }
 
     /**
@@ -79,20 +69,11 @@ public class LogAop {
      * @throws Throwable
      */
     @Around("controller()")
-    public Object logAopAround(ProceedingJoinPoint joinPoint) throws Throwable {
-        ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes)RequestContextHolder.currentRequestAttributes();
-        HttpServletRequest request = servletRequestAttributes.getRequest();
-        HttpServletResponse response = servletRequestAttributes.getResponse();
-        LogDO logDO = new LogDO();
-        logDO.setIp(HttpUtil.getIpAddress(request));
-        logDO.setModuleName("account");
-        logDO.setOperateDesc("测试");
-        logDO.setOperateStatus(1);
-        logDO.setOperateType("add");
-        logDO.setUserId(1001L);
-        logDO.setUrl(request.getRequestURI());
-        logService.insert(logDO);
+    public Object controllerAopAround(ProceedingJoinPoint joinPoint) throws Throwable {
+//        ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes)RequestContextHolder.currentRequestAttributes();
+//        HttpServletRequest request = servletRequestAttributes.getRequest();
+//        HttpServletResponse response = servletRequestAttributes.getResponse();
+        logger.error("controllerAopAround " + joinPoint);
         return joinPoint.proceed();
     }
-
 }
