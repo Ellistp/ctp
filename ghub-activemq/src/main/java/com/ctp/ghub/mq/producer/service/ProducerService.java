@@ -1,4 +1,4 @@
-package com.ctp.ghub.mq.consumer.service;
+package com.ctp.ghub.mq.producer.service;
 
 import javax.annotation.Resource;
 import javax.jms.Destination;

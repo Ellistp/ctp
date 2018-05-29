@@ -1,4 +1,4 @@
-package com.ctp.ghub.mq.producer.service;
+package com.ctp.ghub.mq.consumer.service;
 
 import org.apache.log4j.Logger;
 import org.springframework.jms.core.JmsTemplate;
