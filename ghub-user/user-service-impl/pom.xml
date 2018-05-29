@@ -24,6 +24,11 @@
         </dependency>
         <dependency>
             <groupId>com.ctp</groupId>
+            <artifactId>ghub-activemq</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.ctp</groupId>
             <artifactId>user-service</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
@@ -98,6 +103,23 @@
         <artifactId>zkclient</artifactId>
     </dependency>
         <!-- zookeeper -->
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+        </dependency>
+        <!-- jedis-->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

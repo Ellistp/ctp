@@ -29,11 +29,8 @@ public class ProducerService {
     public void sendMessage(Destination destination, final String msg) {
         System.out.println("向队列" + destination.toString() + "发送了消息=======;消息内容是：" + msg);
         logger.info("向队列" + destination.toString() + "发送了消息=======;消息内容是：" + msg);
-        jmsTemplate.send(destination, new MessageCreator() {
-            @Override
-            public Message createMessage(Session session) throws JMSException {
-                return session.createTextMessage(msg);
-            }
+        jmsTemplate.send(destination, session -> {
+            return session.createTextMessage(msg);
         });
     }
 
@@ -45,11 +42,6 @@ public class ProducerService {
         String destination =  jmsTemplate.getDefaultDestination().toString();
         System.out.println("向队列" +destination+ "发送了消息=======;消息内容是：" + msg);
         logger.info("向队列" + destination + "发送了消息=======;消息内容是：" + msg);
-        jmsTemplate.send(new MessageCreator() {
-            @Override
-            public Message createMessage(Session session) throws JMSException {
-                return session.createTextMessage(msg);
-            }
-        });
+        jmsTemplate.send(session -> session.createTextMessage(msg));
     }
 }

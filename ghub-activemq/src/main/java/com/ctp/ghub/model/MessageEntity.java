@@ -11,20 +11,17 @@ public class MessageEntity implements Serializable{
 
     private static final long serialVersionUID = -1835498589268357306L;
 
-    private String message;
+    private String phone;
 
-    public String getMessage() {
-        return message;
+    public MessageEntity(String phone) {
+        this.phone = phone;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public String getPhone() {
+        return phone;
     }
 
-    @Override
-    public String toString() {
-        return "MessageEntity{" +
-            "message='" + message + '\'' +
-            '}';
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

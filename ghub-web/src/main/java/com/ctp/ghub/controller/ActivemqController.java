@@ -5,11 +5,13 @@ import javax.jms.Destination;
 import javax.jms.JMSException;
 import javax.jms.TextMessage;
 
+import com.ctp.ghub.enums.sms.SmsMessageEnum;
 import com.ctp.ghub.model.Result;
-import com.ctp.ghub.mq.producer.service.ProducerService;
 import com.ctp.ghub.model.MessageEntity;
 import com.ctp.ghub.mq.consumer.service.ConsumerService;
+import com.ctp.ghub.service.SmsMessageService;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,11 +32,8 @@ public class ActivemqController {
     @Resource(name="ghubQueueDestination")
     private Destination ghubQueueDestination;
 
-    /**
-     * 消息队列生产者
-     */
-    @Resource(name="producerService")
-    private ProducerService producer;
+    @Autowired
+    private SmsMessageService smsMessageService;
 
     /**
      * 消息队列消费者
@@ -45,9 +44,10 @@ public class ActivemqController {
     @RequestMapping(value="/sendMessage",method= RequestMethod.POST)
     @ResponseBody
     public Result<String> sendMessage(@RequestBody MessageEntity messageEntity) {
-        logger.info("正在发送消息，消息内容是：" + messageEntity.getMessage());
-        producer.sendMessage(ghubQueueDestination, messageEntity.getMessage());
-        return Result.createSuccessResult(messageEntity.getMessage());
+        logger.info("正在发送消息，消息内容是：" + messageEntity.getPhone());
+        String verifyCode = smsMessageService.generateVerifyCode(SmsMessageEnum.REGISTER_VERIFY_CODE.getCode(), messageEntity.getPhone(), 6);
+        smsMessageService.send(SmsMessageEnum.REGISTER_VERIFY_CODE.getCode(),messageEntity.getPhone(),verifyCode);
+        return Result.createSuccessResult(verifyCode);
     }
 
     @RequestMapping(value="/receiveMessage",method=RequestMethod.GET)

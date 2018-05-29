@@ -29,7 +29,7 @@
         <dubbo.version>2.5.3</dubbo.version>
         <zookeeper.version>3.4.8</zookeeper.version>
         <zkclient.version>0.8</zkclient.version>
-        <commons-lang3.version>3.1</commons-lang3.version>
+        <commons-lang.version>2.6</commons-lang.version>
         <shiro.version>1.2.3</shiro.version>
         <freemarker.version>2.3.22</freemarker.version>
         <commons-beanutils.version>1.9.2</commons-beanutils.version>
@@ -199,9 +199,9 @@
             <!-- mybatis -->
             <!-- apache -->
             <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-lang3</artifactId>
-                <version>${commons-lang3.version}</version>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>${commons-lang.version}</version>
             </dependency>
             <!-- apache -->
             <!-- commons-beanutils -->
