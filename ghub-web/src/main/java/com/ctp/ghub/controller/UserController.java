@@ -2,9 +2,10 @@ package com.ctp.ghub.controller;
 
 import java.util.List;
 
-import com.ctp.ghub.service.UserService;
+import com.ctp.ghub.aop.config.SysLogAnnotation;
 import com.ctp.ghub.model.Result;
 import com.ctp.ghub.model.UserDO;
+import com.ctp.ghub.service.UserService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,6 +37,7 @@ public class UserController {
 
     @RequestMapping(value = "/getTest",method = RequestMethod.GET)
     @ResponseBody
+    @SysLogAnnotation(moduleName = "账户管理",operateDesc = "查询",operateType = "账户查询测试")
     public Result<String> getTest(){
         return Result.createSuccessResult("测试中。。。。。");
     }
