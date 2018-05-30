@@ -2,13 +2,9 @@ package com.ctp.ghub.mq.producer.service;
 
 import javax.annotation.Resource;
 import javax.jms.Destination;
-import javax.jms.JMSException;
-import javax.jms.Message;
-import javax.jms.Session;
 
 import org.apache.log4j.Logger;
 import org.springframework.jms.core.JmsTemplate;
-import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Service;
 
 /**
@@ -29,9 +25,7 @@ public class ProducerService {
     public void sendMessage(Destination destination, final String msg) {
         System.out.println("向队列" + destination.toString() + "发送了消息=======;消息内容是：" + msg);
         logger.info("向队列" + destination.toString() + "发送了消息=======;消息内容是：" + msg);
-        jmsTemplate.send(destination, session -> {
-            return session.createTextMessage(msg);
-        });
+        jmsTemplate.send(destination, session -> session.createTextMessage(msg));
     }
 
     /**

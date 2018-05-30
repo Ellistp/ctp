@@ -21,10 +21,10 @@
     <!-- 启动对@AspectJ注解的支持 proxy-target-class设置为true表示通知spring使用
     cglib而不是jdk的来生成代理方法，这样AOP可以拦截到Controller -->
     <aop:aspectj-autoproxy proxy-target-class="true"/>
-    <!-- 这里要手动配置controllerAop bean ,因为上面的扫描只扫描到controller 目录 -->
+    <!-- 这里要手动配置controllerAop bean ,因为上面的扫描只扫描到com.ctp.ghub.controller 目录 -->
     <bean id="controllerAop" class="com.ctp.ghub.aop.ControllerAop"/>
 
-    <!-- 使用fastjson 配置 ,支持请求数据类型三种 -->
+    <!-- 使用fastjson 配置 ,支持转化的请求数据类型为三种 -->
     <!-- mvc:annotation-driven 会自动注册RequestMappingHandlerMapping与
     RequestMappingHandlerAdapter两个Bean,这是Spring MVC为@Controller分发请求所必需的 -->
     <mvc:annotation-driven>

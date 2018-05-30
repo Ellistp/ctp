@@ -6,7 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 
 /**
  * @author chengtianping
@@ -60,14 +60,14 @@ public class jdk8Test {
         //能应用在一组元素上一次执行的操作序列
         /* stream 接口 Stream 的创建需要指定一个数据源，比如 java.util.Collection的子类，
         List或者Set， Map不支持。Stream的操作可以串行执行或者并行执行。*/
-        Arrays.stream(names.toArray()).filter(name -> StringUtils.equals((CharSequence)name,"anna")).forEach(System.out::println);
+        Arrays.stream(names.toArray()).filter(name -> StringUtils.equals((String)name,"anna")).forEach(System.out::println);
         //4.1 Filter 过滤
         //4.2 Sort 排序
 
         //5.  并行Streams
         //前面提到过Stream有串行和并行两种，串行Stream上的操作是在一个线程中依次完成，
         // 而并行Stream则是在多个线程上同时执行。
-        names.parallelStream().filter(name -> StringUtils.equals((CharSequence)name,"anna")).forEach(System.out::println);
+        names.parallelStream().filter(name -> StringUtils.equals(name,"anna")).forEach(System.out::println);
 
         //6. Date API
     }

@@ -1,13 +1,13 @@
 package com.ctp.ghub.mq.consumer.service;
 
-import org.apache.log4j.Logger;
-import org.springframework.jms.core.JmsTemplate;
-import org.springframework.stereotype.Service;
-
 import javax.annotation.Resource;
 import javax.jms.Destination;
 import javax.jms.JMSException;
 import javax.jms.TextMessage;
+
+import org.apache.log4j.Logger;
+import org.springframework.jms.core.JmsTemplate;
+import org.springframework.stereotype.Service;
 
 /**
  * Created by Administrator on 2018/5/20 0020.
@@ -25,13 +25,13 @@ public class ConsumerService {
      * @return
      */
     public TextMessage receiveMessage(Destination destination) {
-        TextMessage tm = (TextMessage) jmsTemplate.receive(destination);
+        TextMessage textMessage = (TextMessage) jmsTemplate.receive(destination);
         try {
-            System.out.println("从队列" + destination.toString() + "收到了消息=======;消息内容是：" + tm.getText());
-            logger.info("从队列" + destination.toString() + "收到了消息=======;消息内容是：" + tm.getText());
+            System.out.println("从队列" + destination.toString() + "收到了消息=======;消息内容是：" + textMessage.getText());
+            logger.info("从队列" + destination.toString() + "收到了消息=======;消息内容是：" + textMessage.getText());
         } catch (JMSException e) {
             logger.error("activemq在接受消息时发生的异常: ",e);
         }
-        return tm;
+        return textMessage;
     }
 }
