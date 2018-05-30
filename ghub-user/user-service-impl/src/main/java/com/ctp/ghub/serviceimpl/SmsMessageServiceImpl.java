@@ -1,15 +1,6 @@
 package com.ctp.ghub.serviceimpl;
 
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-
-import javax.annotation.Resource;
-import javax.jms.Destination;
-
 import com.alibaba.fastjson.JSON;
-
 import com.ctp.ghub.model.smsmessage.SmsMessageDTO;
 import com.ctp.ghub.mq.producer.service.ProducerService;
 import com.ctp.ghub.service.SmsMessageService;
@@ -20,6 +11,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+import javax.jms.Destination;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+
 /**
  * Created by Administrator on 2018/5/29 0029.
  */
@@ -28,8 +25,7 @@ public class SmsMessageServiceImpl implements SmsMessageService {
 
     private static final Logger logger = Logger.getLogger(SmsMessageServiceImpl.class);
 
-    protected final ExecutorService sendSmsExecutor = new ThreadPoolExecutor(100,500,100,TimeUnit.SECONDS,
-        new ArrayBlockingQueue<>(1));
+    protected final ExecutorService sendSmsExecutor = Executors.newFixedThreadPool(50);
 
     /**
      * 消息地址
@@ -48,7 +44,7 @@ public class SmsMessageServiceImpl implements SmsMessageService {
         String verifyCode = (String) redisTemplate.opsForValue().get(smsMessageType + mobile);
 
         if (StringUtils.isBlank(verifyCode)) {
-            verifyCode = RandomCodeGeneratorUtil.getRandomArabicNumber();
+            verifyCode = RandomCodeGeneratorUtil.getRandomRegisterVerifyCode();
         }
         redisTemplate.opsForValue().set(smsMessageType + mobile, verifyCode, 60, TimeUnit.SECONDS);
         return verifyCode;
