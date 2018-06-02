@@ -42,7 +42,8 @@ public class ControllerAop {
      * 定义所有的 controller 切入点
      * 配置切入点,该方法无方法体,主要为方便同类中其他方法使用此处配置的切入点
      */
-    @Pointcut("within(@org.springframework.stereotype.Controller *)")
+//    @Pointcut("within(@org.springframework.stereotype.Controller *)")
+    @Pointcut("execution(public * com.ctp.ghub.controller.*.*(..))")
     public void controller() {
     }
 
@@ -50,11 +51,10 @@ public class ControllerAop {
      * 配置前置通知,使用在方法aspect()上注册的切入点
      * 同时接受JoinPoint切入点对象,可以没有该参数
      * @param joinPoint
-     * @param request
      * @throws Throwable
      */
     @Before("controller() && args(..,request)")
-    public void controllerAopBefore(JoinPoint joinPoint, HttpServletRequest request) throws Throwable {
+    public void controllerAopBefore(JoinPoint joinPoint,HttpServletRequest request) throws Throwable {
         if (null != request) {
             if(logger.isInfoEnabled()){
                 logger.info("controller aop before " + joinPoint);

@@ -4,6 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
 
+    <!-- 服务层的配置文件 导入进来 在web.xml中context-param 初始化-->
     <!-- common xml -->
     <import resource="classpath:redis/common-redis.xml"/>
     <import resource="classpath:jdbc/common-jdbc.xml"/>
@@ -19,4 +20,5 @@
     <!-- dubbo provider xml -->
     <import resource="classpath:spring-user-dubbo-provider.xml"/>
     <import resource="classpath:spring-log-dubbo-provider.xml"/>
+    <!-- 服务层的配置文件 导入进来 在web.xml中context-param 初始化-->
 </beans>
