@@ -105,7 +105,7 @@ public class ControllerAop {
         // 拦截的放参数类型
         Signature sig = joinPoint.getSignature();
 
-        logDO.setIp(HttpUtil.getIpAddress(request));
+        logDO.setIp(HttpUtil.getRealIpAddress(request));
         logDO.setUrl(request.getRequestURI());
         MethodSignature msig;
         if (!(sig instanceof MethodSignature)) {

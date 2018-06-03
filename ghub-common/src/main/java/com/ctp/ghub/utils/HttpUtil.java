@@ -66,11 +66,18 @@ public class HttpUtil {
                 return result;
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("Exception exception -- > " + e);
         } finally {
             if (response != null){
                 try {
                     response.close();
+                } catch (IOException e) {
+                    logger.error("IOException exception -- > " + e);
+                }
+            }
+            if(httpclient != null){
+                try {
+                    httpclient.close();
                 } catch (IOException e) {
                     logger.error("IOException exception -- > " + e);
                 }
@@ -117,6 +124,13 @@ public class HttpUtil {
                     logger.error("IOException exception -- > " + e);
                 }
             }
+            if(httpClient != null){
+                try {
+                    httpClient.close();
+                } catch (IOException e) {
+                    logger.error("IOException exception -- > " + e);
+                }
+            }
         }
     }
 
@@ -125,15 +139,26 @@ public class HttpUtil {
      * @param request
      * @return
      */
-    public static String getIpAddress(HttpServletRequest request) {
-        String ip = request.getHeader("x-forwarded-for");
+    public static String getRealIpAddress(HttpServletRequest request) {
+        String ip = request.getHeader("x-forwarded-for");//squid 服务代理
         if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-            ip = request.getHeader("Proxy-Client-IP");
+            ip = request.getHeader("Proxy-Client-IP");//apache服务代理
         }
         if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-            ip = request.getHeader("WL-Proxy-Client-IP");
+            ip = request.getHeader("WL-Proxy-Client-IP");//weblogic 代理
         }
 
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("HTTP_CLIENT_IP");//有些代理
+        }
+
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("X-Real-IP"); //nginx代理
+        }
+
+        /*
+        * 如果此时还是获取不到ip地址，那么最后就使用request.getRemoteAddr()来获取
+        * */
         if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
             ip = request.getRemoteAddr();
             if(StringUtils.equals(ip,LOCAL_IP) || StringUtils.equals(ip,DEFAULT_IP)){
@@ -142,7 +167,7 @@ public class HttpUtil {
                 try {
                     iNet = InetAddress.getLocalHost();
                 } catch (UnknownHostException e) {
-                    logger.error("InetAddress getLocalHost error In HttpUtils getIpAddress: " ,e);
+                    logger.error("InetAddress getLocalHost error In HttpUtils getRealIpAddress: " ,e);
                 }
                 ip= iNet.getHostAddress();
             }
