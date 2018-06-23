@@ -45,7 +45,7 @@
         </property>
     </bean>
 
-    <!-- DAO接口所在包名，Spring会自动查找其下的类 -->
+    <!-- mybatis 映射dao 和 mybatis sql id -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.ctp.ghub.dao" />
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
@@ -55,6 +55,7 @@
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource" />
     </bean>
+
     <!-- 使用annotation注解方式配置事务 -->
     <tx:annotation-driven transaction-manager="transactionManager"  />
 </beans>
