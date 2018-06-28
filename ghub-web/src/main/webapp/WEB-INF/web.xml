@@ -12,6 +12,16 @@
     </context-param>
     <!-- 部署applicationContext的xml文件 -->
 
+    <!-- 测试环境的spring配置 -->
+    <context-param>
+        <param-name>spring.profiles.active</param-name>
+        <!-- dev 表示开发环境 -->
+        <param-value>dev</param-value>
+        <!-- prod表示线上环境 -->
+        <!--<param-value>prod</param-value>-->
+    </context-param>
+    <!-- 测试环境的spring配置 -->
+
     <!-- 加载log4j配置文件 -->
     <context-param>
       <param-name>log4jConfigLocation</param-name>
@@ -23,7 +33,7 @@
     </listener>
     <!-- 加载log4j配置文件 -->
 
-    <!-- Spring监听器 -->
+    <!-- Spring监听器 通过ContextLoaderListener 启动ApplicationContext ，实现Bean的实例化和装配-->
     <listener>
       <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>

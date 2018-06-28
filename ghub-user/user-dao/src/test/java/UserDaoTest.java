@@ -1,5 +1,7 @@
+import java.util.List;
+
 import com.ctp.ghub.dao.UserDao;
-import com.ctp.ghub.junit.BaseSpringTest;
+import com.ctp.ghub.junit.BaseSpringJunitTest;
 import com.ctp.ghub.model.UserDO;
 import org.junit.Assert;
 import org.junit.Before;
@@ -9,14 +11,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.util.List;
-
 /**
  * Created by Administrator on 2018/5/20 0020.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:jdbc/common-jdbc.xml"})
-public class UserDaoTest extends BaseSpringTest{
+public class UserDaoTest extends BaseSpringJunitTest {
 
     @Autowired
     UserDao userDao;
