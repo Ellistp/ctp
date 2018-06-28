@@ -81,6 +81,7 @@
     </servlet>
     <servlet-mapping>
       <servlet-name>dispatcherServlet</servlet-name>
+        <!-- 这里面注意不是/* -->
       <url-pattern>/</url-pattern>
     </servlet-mapping>
     <!-- Spring MVC初始化 -->
