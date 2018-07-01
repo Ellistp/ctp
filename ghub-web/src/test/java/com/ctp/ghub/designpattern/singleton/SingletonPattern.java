@@ -1,4 +1,4 @@
-package com.ctp.ghub.designpattern;
+package com.ctp.ghub.designpattern.singleton;
 
 /**
  * @author chengtianping
@@ -7,13 +7,13 @@ package com.ctp.ghub.designpattern;
  */
 public class SingletonPattern {
 
-    private static final Singleton singleton = new Singleton();
+    private static final SingletonPattern singleton = new SingletonPattern();
 
+    //确保当前类不能够被实例化
     private SingletonPattern(){
-
     }
 
-    public static Singleton getSingleton(){
+    public static SingletonPattern getSingleton(){
         return singleton;
     }
 

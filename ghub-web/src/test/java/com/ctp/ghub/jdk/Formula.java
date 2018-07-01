@@ -1,4 +1,4 @@
-package com.ctp.ghub;
+package com.ctp.ghub.jdk;
 
 /**
  * @author chengtianping

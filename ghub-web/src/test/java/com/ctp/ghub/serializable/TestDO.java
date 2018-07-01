@@ -1,4 +1,4 @@
-package com.ctp.ghub;
+package com.ctp.ghub.serializable;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
