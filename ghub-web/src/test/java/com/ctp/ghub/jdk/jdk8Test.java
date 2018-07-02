@@ -49,7 +49,7 @@ public class jdk8Test {
 
         //jdk8 之后的排序写法
         //将表达式作为 一个参数 传递给方法
-        Collections.sort(names,(String a,String b) -> b.compareTo(a));
+        Collections.sort(names,(String a, String b) -> b.compareTo(a));
 
         //3.  使用 Optional 可以防止空指针的出现
         /* Optional 接口 */
