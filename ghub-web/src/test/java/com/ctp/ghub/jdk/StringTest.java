@@ -16,5 +16,10 @@ public class StringTest {
         System.out.println(str2 == str3);
         System.out.println(str1 == str4);
         System.out.println(str4 == str2);
+
+
+        String s1= "ab" + "cd";
+        String s2= "abc" + "d";
+        System.out.println(s1 == s2);
     }
 }
