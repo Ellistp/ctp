@@ -1,14 +1,12 @@
 package com.ctp.ghub.dao;
 
-import com.ctp.ghub.model.UserDO;
-import org.springframework.stereotype.Repository;
-
 import java.util.List;
+
+import com.ctp.ghub.model.UserDO;
 
 /**
  * Created by Administrator on 2018/5/12 0012.
  */
-@Repository
 public interface UserDao {
 
     /**

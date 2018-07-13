@@ -3,14 +3,12 @@ package com.ctp.ghub.dao;
 import java.util.List;
 
 import com.ctp.ghub.model.LogDO;
-import org.springframework.stereotype.Repository;
 
 /**
  * @author chengtianping
  * @description
  * @date 2018/5/22
  */
-@Repository
 public interface LogDao {
 
     /**
