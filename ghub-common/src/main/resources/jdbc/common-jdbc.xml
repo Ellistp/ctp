@@ -46,8 +46,10 @@
 
     <!-- mybatis 映射dao 和 mybatis sql id -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!-- 使用,号配置多个dao -->
+        <!--<property name="basePackage" value="com.peop.user.dao,com.peop.question.dao,com.peop.exam.dao" />-->
         <property name="basePackage" value="com.ctp.ghub.dao" />
-        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
 
     <!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->
