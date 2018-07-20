@@ -1,26 +1,28 @@
 package com.ctp.ghub.aop;
 
-import java.lang.reflect.Method;
+import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import com.ctp.ghub.aop.config.SysLogAnnotation;
-import com.ctp.ghub.enums.log.OperateStatusEnum;
-import com.ctp.ghub.model.LogDO;
-import com.ctp.ghub.service.LogService;
-import com.ctp.ghub.utils.HttpUtil;
+import com.alibaba.fastjson.JSONObject;
+
+import com.ctp.ghub.constant.Constant;
+import com.ctp.ghub.model.ErrorConstant;
+import com.ctp.ghub.model.Result;
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
-import org.aspectj.lang.reflect.MethodSignature;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -29,21 +31,18 @@ import org.springframework.web.context.request.ServletRequestAttributes;
  * @description
  * @date 2018/5/22
  */
+@Component
 @Aspect
 public class ControllerAop {
     private static final Logger logger = Logger.getLogger(ControllerAop.class);
-
-    @Autowired
-    private LogService logService;
-
-    private LogDO logDO = new LogDO();
 
     /**
      * 定义所有的 controller 切入点
      * 配置切入点,该方法无方法体,主要为方便同类中其他方法使用此处配置的切入点
      */
-//    @Pointcut("within(@org.springframework.stereotype.Controller *)")
-    @Pointcut("execution(public * com.ctp.ghub.controller.*.*(..))")
+    @Pointcut("within(@org.springframework.stereotype.Controller *) && "
+        + "@annotation(org.springframework.web.bind.annotation.RequestMapping)")
+//    @Pointcut("execution(public * com.ctp.ghub.controller.*.*(..))")
     public void controller() {
     }
 
@@ -71,7 +70,6 @@ public class ControllerAop {
         if(logger.isInfoEnabled()){
             logger.info("controller aop after " + joinPoint);
         }
-        this.logService.insert(logDO);
     }
 
     /**
@@ -82,8 +80,6 @@ public class ControllerAop {
     @AfterThrowing(pointcut = "controller()", throwing = "exception")
     public void controllerAopAfterThrowing(JoinPoint joinPoint, Throwable exception) {
         logger.error("controllerAopAfterThrowing " + exception);
-        logDO.setOperateStatus(OperateStatusEnum.FAILURE.getCode());
-        this.logService.insert(logDO);
     }
 
     /**
@@ -96,49 +92,43 @@ public class ControllerAop {
     public Object controllerAopAround(ProceedingJoinPoint joinPoint) throws Throwable {
         ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes)RequestContextHolder.currentRequestAttributes();
         HttpServletRequest request = servletRequestAttributes.getRequest();
-        // 拦截的实体类，就是当前正在执行的controller
-        Object target = joinPoint.getTarget();
-        // 拦截的方法名称。当前正在执行的方法
-        String methodName = joinPoint.getSignature().getName();
-        // 拦截的方法参数
-        Object[] args = joinPoint.getArgs();
-        // 拦截的放参数类型
-        Signature sig = joinPoint.getSignature();
+        HttpServletResponse response = servletRequestAttributes.getResponse();
 
-        logDO.setIp(HttpUtil.getRealIpAddress(request));
-        logDO.setUrl(request.getRequestURI());
-        MethodSignature msig;
-        if (!(sig instanceof MethodSignature)) {
-            logger.error("该注解只能用于方法");
-            return joinPoint.proceed();
-        }
-        msig = (MethodSignature) sig;
-        Class[] parameterTypes = msig.getMethod().getParameterTypes();
-        Method method = null;
-        try {
-            method = target.getClass().getMethod(methodName, parameterTypes);
-        } catch (NoSuchMethodException e) {
-            logger.error("controllerAopAround NoSuchMethodException :  ",e);
-        } catch (SecurityException e) {
-            logger.error("controllerAopAround SecurityException :  ",e);
-        }
-
-        if (null != method) {
-            // 判断是否需要使用自定义日志注解
-            if (method.isAnnotationPresent(SysLogAnnotation.class)) {
-                SysLogAnnotation sysLogAnnotation = method.getAnnotation(SysLogAnnotation.class);
-                logDO.setOperateType(sysLogAnnotation.operateType());
-                logDO.setOperateDesc(sysLogAnnotation.operateDesc());
-                logDO.setModuleName(sysLogAnnotation.moduleName());
-                logDO.setOperateStatus(OperateStatusEnum.SUCCESS.getCode());
+        HttpSession session = request.getSession();
+        //未登录
+        if(session.getAttribute(Constant.SESSION_LOGIN_USER) == null){
+            logger.error("未登录系统，请求路径是：" + request.getRequestURI());
+            //post请求
+            if(StringUtils.equals(RequestMethod.POST.toString(),request.getMethod())){
+                // json 请求返回
+                PrintWriter writer = null;
+                try {
+                    response.setContentType(Constant.APPLICATION_JSON_CHARSET_UTF_8);
+                    writer = response.getWriter();
+                    Result<String> result = Result.createFailResult(ErrorConstant.NOT_LOGIN_ERROR);
+                    writer.write(JSONObject.toJSONString(result));
+                    writer.flush();
+                }catch (Exception e){
+                    if (logger.isInfoEnabled()) {
+                        logger.error("LoginAop exception  ",e);
+                    }
+                }finally{
+                    if(null != writer){
+                        writer.flush();
+                        writer.close();
+                    }
+                }
             }else {
-                logDO.setOperateDesc("当前操作不需要注解");
+                //其他请求 链接到登录页面
+                response.sendRedirect("login");
             }
         }else {
-            //不需要拦截直接放行
-            logDO.setOperateDesc("不需要拦截直接放行");
+            //登录成功 对请求做一些校验工作 ，例如token的校验
+            //post请求
+            if(StringUtils.equals(RequestMethod.POST.toString(),request.getMethod())){
+            }else {
+            }
         }
-        logger.info("controllerAopAround " + joinPoint);
         return joinPoint.proceed();
     }
 }

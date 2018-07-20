@@ -7,7 +7,6 @@ import javax.jms.Destination;
 import javax.jms.JMSException;
 import javax.jms.TextMessage;
 
-import com.ctp.ghub.aop.config.SysLogAnnotation;
 import com.ctp.ghub.enums.sms.SmsMessageEnum;
 import com.ctp.ghub.model.MessageEntity;
 import com.ctp.ghub.model.Result;
@@ -76,17 +75,6 @@ public class UserController {
         int size = CollectionUtils.isEmpty(userDOList) == true?0 : userDOList.size();
         logger.info("/api/ghub/user/getUser size:  " + String.valueOf(size));
         return Result.createSuccessResult(String.valueOf(size));
-    }
-
-    /**
-     * aop 日志测试
-     * @return
-     */
-    @RequestMapping(value = "/getTest",method = RequestMethod.GET)
-    @ResponseBody
-    @SysLogAnnotation(moduleName = "账户管理",operateDesc = "查询",operateType = "账户查询测试")
-    public Result<String> getTest(){
-        return Result.createSuccessResult("测试中。。。。。");
     }
 
     /**
