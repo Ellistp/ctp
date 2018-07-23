@@ -52,6 +52,8 @@
         <cglig.version>3.2.4</cglig.version>
         <velocity.version>1.7</velocity.version>
         <velocity-tools.version>2.0</velocity-tools.version>
+        <jsp.version>2.0</jsp.version>
+        <jstl.version>1.2</jstl.version>
         <!-- 设置默认编码 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <center.project.name>${project.artifactId}</center.project.name>
@@ -327,6 +329,17 @@
                 <groupId>org.apache.velocity</groupId>
                 <artifactId>velocity-tools</artifactId>
                 <version>${velocity-tools.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>jsp-api</artifactId>
+                <version>${jsp.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>jstl</artifactId>
+                <version>${jstl.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

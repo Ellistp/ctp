@@ -1,45 +1,38 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="ctx" value="<%=request.getContextPath()%>" />
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    <!-- start: Meta -->
     <meta charset="utf-8"/>
-    <title>SimpliQ - Flat & Responsive Bootstrap Admin Template</title>
-    <meta name="description" content="SimpliQ - Flat & Responsive Bootstrap Admin Template."/>
-    <meta name="author" content="Łukasz Holeczek"/>
-    <meta name="keyword" content="SimpliQ, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina"/>
-    <!-- end: Meta -->
+    <title>welcome to ghub!</title>
+    <meta name="description" content="ghub project"/>
+    <meta name="author" content="chengtianping"/>
+    <meta name="keyword" content="spring mvc"/>
 
-    <!-- start: Mobile Specific -->
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <!-- end: Mobile Specific -->
 
-    <!-- start: CSS -->
-    <link href="<%=request.getContextPath()%>/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="<%=request.getContextPath()%>/css/bootstrap-responsive.min.css" rel="stylesheet"/>
-    <link href="<%=request.getContextPath()%>/css/style.min.css" rel="stylesheet"/>
-    <link href="<%=request.getContextPath()%>/css/style-responsive.min.css" rel="stylesheet"/>
-    <link href="<%=request.getContextPath()%>/css/retina.css" rel="stylesheet"/>
-    <!-- end: CSS -->
+    <link href="${ctx}/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="${ctx}/css/bootstrap-responsive.min.css" rel="stylesheet"/>
+    <link href="${ctx}/css/style.min.css" rel="stylesheet"/>
+    <link href="${ctx}/css/style-responsive.min.css" rel="stylesheet"/>
+    <link href="${ctx}/css/retina.css" rel="stylesheet"/>
 
 
-    <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <link id="ie-style" href="<%=request.getContextPath()%>/css/ie.css" rel="stylesheet">
-    <![endif]-->
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"/>
+    <link id="ie-style" href="${ctx}/css/ie.css" rel="stylesheet"/>
 
     <!--[if IE 9]>
-    <link id="ie9style" href="<%=request.getContextPath()%>/css/ie9.css" rel="stylesheet">
+    <link id="ie9style" href="${ctx}/css/ie9.css" rel="stylesheet">
     <![endif]-->
 
-    <!-- start: Favicon and Touch Icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<%=request.getContextPath()%>/ico/apple-touch-icon-144-precomposed.png"/>
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<%=request.getContextPath()%>/ico/apple-touch-icon-114-precomposed.png"/>
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<%=request.getContextPath()%>/ico/apple-touch-icon-72-precomposed.png"/>
-    <link rel="apple-touch-icon-precomposed" href="<%=request.getContextPath()%>/ico/apple-touch-icon-57-precomposed.png"/>
-    <link rel="shortcut icon" href="<%=request.getContextPath()%>/ico/favicon.png"/>
-    <!-- end: Favicon and Touch Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="${ctx}/ico/apple-touch-icon-144-precomposed.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="${ctx}/ico/apple-touch-icon-114-precomposed.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="${ctx}/ico/apple-touch-icon-72-precomposed.png"/>
+    <link rel="apple-touch-icon-precomposed" href="${ctx}/ico/apple-touch-icon-57-precomposed.png"/>
+    <link rel="shortcut icon" href="${ctx}/ico/favicon.png"/>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 </head>
@@ -47,13 +40,11 @@
 <body>
 <div class="container-fluid-full">
     <div class="row-fluid">
-
         <div class="row-fluid">
             <div class="login-box">
                 <h2>Login to your account</h2>
-                <form class="form-horizontal" action="index.html" method="post"/>
+                <form class="form-horizontal">
                 <fieldset>
-
                     <input class="input-large span12" name="username" id="username" type="text"
                            placeholder="type username"/>
 
@@ -61,67 +52,59 @@
                            placeholder="type password"/>
 
                     <div class="clearfix"></div>
-
                     <label class="remember" for="remember"><input type="checkbox" id="remember"/>Remember me</label>
-
                     <div class="clearfix"></div>
-
-                    <button type="submit" class="btn btn-primary span12">Login</button>
+                    <button id="loginButton" class="btn btn-primary span12">Login</button>
                 </fieldset>
-
-                </form
+                </form>
                 <hr/>
                 <h3>Forgot Password?</h3>
                 <p>
                     No problem, <a href="#">click here</a> to get a new password.
                 </p>
             </div>
-        </div><!--/row-->
+        </div>
+    </div>
+</div>
 
-    </div><!--/fluid-row-->
-
-</div><!--/.fluid-container-->
-
-<!-- start: JavaScript-->
-<script src="<%=request.getContextPath()%>/js/jquery-1.10.2.min.js"></script>
-<script src="<%=request.getContextPath()%>/js/jquery-migrate-1.2.1.min.js"></script>
-<script src="<%=request.getContextPath()%>/js/jquery-ui-1.10.3.custom.min.js"></script>
-<script src="<%=request.getContextPath()%>/js/jquery.ui.touch-punch.js"></script>
-<script src="<%=request.getContextPath()%>/js/modernizr.js"></script>
-<script src="<%=request.getContextPath()%>/js/bootstrap.min.js"></script>
-<script src="<%=request.getContextPath()%>/js/jquery.cookie.js"></script>
-<script src='<%=request.getContextPath()%>/js/fullcalendar.min.js'></script>
-<script src='<%=request.getContextPath()%>/js/jquery.dataTables.min.js'></script>
-<script src="<%=request.getContextPath()%>/js/excanvas.js"></script>
-<script src="<%=request.getContextPath()%>/js/jquery.flot.js"></script>
-<script src="<%=request.getContextPath()%>/js/jquery.flot.pie.js"></script>
-<script src="<%=request.getContextPath()%>/js/jquery.flot.stack.js"></script>
-<script src="<%=request.getContextPath()%>/js/jquery.flot.resize.min.js"></script>
-<script src="<%=request.getContextPath()%>/js/jquery.flot.time.js"></script>
-
-<script src="<%=request.getContextPath()%>/js/jquery.chosen.min.js"></script>
-<script src="<%=request.getContextPath()%>/js/jquery.uniform.min.js"></script>
-<script src="<%=request.getContextPath()%>/js/jquery.cleditor.min.js"></script>
-<script src="<%=request.getContextPath()%>/js/jquery.noty.js"></script>
-<script src="<%=request.getContextPath()%>/js/jquery.elfinder.min.js"></script>
-<script src="<%=request.getContextPath()%>/js/jquery.raty.min.js"></script>
-<script src="<%=request.getContextPath()%>/js/jquery.iphone.toggle.js"></script>
-<script src="<%=request.getContextPath()%>/js/jquery.uploadify-3.1.min.js"></script>
-<script src="<%=request.getContextPath()%>/js/jquery.gritter.min.js"></script>
-<script src="<%=request.getContextPath()%>/js/jquery.imagesloaded.js"></script>
-<script src="<%=request.getContextPath()%>/js/jquery.masonry.min.js"></script>
-<script src="<%=request.getContextPath()%>/js/jquery.knob.modified.js"></script>
-<script src="<%=request.getContextPath()%>/js/jquery.sparkline.min.js"></script>
-<script src="<%=request.getContextPath()%>/js/counter.min.js"></script>
-<script src="<%=request.getContextPath()%>/js/raphael.2.1.0.min.js"></script>
-<script src="<%=request.getContextPath()%>/js/justgage.1.0.1.min.js"></script>
-<script src="<%=request.getContextPath()%>/js/jquery.autosize.min.js"></script>
-<script src="<%=request.getContextPath()%>/js/retina.js"></script>
-<script src="<%=request.getContextPath()%>/js/jquery.placeholder.min.js"></script>
-<script src="<%=request.getContextPath()%>/js/wizard.min.js"></script>
-<script src="<%=request.getContextPath()%>/js/core.min.js"></script>
-<script src="<%=request.getContextPath()%>/js/charts.min.js"></script>
-<script src="<%=request.getContextPath()%>/js/custom.min.js"></script>
-<!-- end: JavaScript-->
+<script src="${ctx}/js/jquery-1.10.2.min.js"/>
+<script src="${ctx}/js/jquery-migrate-1.2.1.min.js"/>
+<script src="${ctx}/js/jquery-ui-1.10.3.custom.min.js"/>
+<script src="${ctx}/js/jquery.ui.touch-punch.js"/>
+<script src="${ctx}/js/modernizr.js"/>
+<script src="${ctx}/js/bootstrap.min.js"/>
+<script src="${ctx}/js/jquery.cookie.js"/>
+<script src='${ctx}/js/fullcalendar.min.js'/>
+<script src='${ctx}/js/jquery.dataTables.min.js'/>
+<script src="${ctx}/js/excanvas.js"/>
+<script src="${ctx}/js/jquery.flot.js"/>
+<script src="${ctx}/js/jquery.flot.pie.js"/>
+<script src="${ctx}/js/jquery.flot.stack.js"/>
+<script src="${ctx}/js/jquery.flot.resize.min.js"/>
+<script src="${ctx}/js/jquery.flot.time.js"/>
+<script src="${ctx}/js/jquery.chosen.min.js"/>
+<script src="${ctx}/js/jquery.uniform.min.js"/>
+<script src="${ctx}/js/jquery.cleditor.min.js"/>
+<script src="${ctx}/js/jquery.noty.js"/>
+<script src="${ctx}/js/jquery.elfinder.min.js"/>
+<script src="${ctx}/js/jquery.raty.min.js"/>
+<script src="${ctx}/js/jquery.iphone.toggle.js"/>
+<script src="${ctx}/js/jquery.uploadify-3.1.min.js"/>
+<script src="${ctx}/js/jquery.gritter.min.js"/>
+<script src="${ctx}/js/jquery.imagesloaded.js"/>
+<script src="${ctx}/js/jquery.masonry.min.js"/>
+<script src="${ctx}/js/jquery.knob.modified.js"/>
+<script src="${ctx}/js/jquery.sparkline.min.js"/>
+<script src="${ctx}/js/counter.min.js"/>
+<script src="${ctx}/js/raphael.2.1.0.min.js"/>
+<script src="${ctx}/js/justgage.1.0.1.min.js"/>
+<script src="${ctx}/js/jquery.autosize.min.js"/>
+<script src="${ctx}/js/retina.js"/>
+<script src="${ctx}/js/jquery.placeholder.min.js"/>
+<script src="${ctx}/js/wizard.min.js"/>
+<script src="${ctx}/js/core.min.js"/>
+<script src="${ctx}/js/charts.min.js"/>
+<script src="${ctx}/js/custom.min.js"/>
+<script src="${ctx}/js/app.js"/>
 </body>
 </html>
