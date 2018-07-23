@@ -1,10 +1,16 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+            + path + "/";
+%>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="ctx" value="<%=request.getContextPath()%>" />
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <base href="<%=basePath%>">
     <meta charset="utf-8"/>
     <title>welcome to ghub!</title>
     <meta name="description" content="ghub project"/>
@@ -43,31 +49,28 @@
         <div class="row-fluid">
             <div class="login-box">
                 <h2>Login to your account</h2>
-                <form class="form-horizontal">
-                <fieldset>
-                    <input class="input-large span12" name="username" id="username" type="text"
-                           placeholder="type username"/>
+                <form class="form-horizontal" id="loginForm" method="post">
+                    <fieldset>
+                        <input class="input-large span12" name="userName" id="userName" type="text" placeholder="type username"/>
+                        <input class="input-large span12" name="passWord" id="passWord" type="password" placeholder="type password"/>
 
-                    <input class="input-large span12" name="password" id="password" type="password"
-                           placeholder="type password"/>
-
-                    <div class="clearfix"></div>
-                    <label class="remember" for="remember"><input type="checkbox" id="remember"/>Remember me</label>
-                    <div class="clearfix"></div>
-                    <button id="loginButton" class="btn btn-primary span12">Login</button>
-                </fieldset>
+                        <div class="clearfix"></div>
+                        <label class="remember" for="remember"><input type="checkbox" id="remember"/>Remember me</label>
+                        <div class="clearfix"></div>
+                        <button type="button" id="loginButton" class="btn btn-primary span12" onclick="javascript:login();">Login</button>
+                    </fieldset>
                 </form>
-                <hr/>
-                <h3>Forgot Password?</h3>
-                <p>
-                    No problem, <a href="#">click here</a> to get a new password.
-                </p>
+                    <hr/>
+                    <h3>Forgot Password?</h3>
+                    <p>
+                        No problem, <a href="#">click here</a> to get a new password.
+                    </p>
             </div>
         </div>
     </div>
 </div>
 
-<script src="${ctx}/js/jquery-1.10.2.min.js"/>
+<script src="${ctx}/js/jquery-3.3.1.js"/>
 <script src="${ctx}/js/jquery-migrate-1.2.1.min.js"/>
 <script src="${ctx}/js/jquery-ui-1.10.3.custom.min.js"/>
 <script src="${ctx}/js/jquery.ui.touch-punch.js"/>
@@ -105,6 +108,23 @@
 <script src="${ctx}/js/core.min.js"/>
 <script src="${ctx}/js/charts.min.js"/>
 <script src="${ctx}/js/custom.min.js"/>
-<script src="${ctx}/js/app.js"/>
+<%--<script src="${ctx}/js/app.js"/>--%>
+<script>
+  function login() {
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            url: "/api/ghub/security/login",
+            data: $('#loginForm').serialize(),
+            success: function (result) {
+                console.log(result);
+                alert("SUCCESS");
+            },
+            error : function() {
+                alert("异常！");
+            }
+        });
+    }
+</script>
 </body>
 </html>
