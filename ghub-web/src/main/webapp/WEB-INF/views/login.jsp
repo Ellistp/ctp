@@ -123,7 +123,5 @@
 <script src="<%=request.getContextPath()%>/js/charts.min.js"></script>
 <script src="<%=request.getContextPath()%>/js/custom.min.js"></script>
 <!-- end: JavaScript-->
-
-
 </body>
 </html>

@@ -21,6 +21,7 @@ public class LoginController {
 
     @RequestMapping(value = "/login",method = RequestMethod.GET)
     public ModelAndView login(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
         return new ModelAndView("login");
     }
 }
