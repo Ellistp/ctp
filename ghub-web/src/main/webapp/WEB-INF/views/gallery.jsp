@@ -15,30 +15,30 @@
     <!-- end: Mobile Specific -->
 
     <!-- start: CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="css/bootstrap-responsive.min.css" rel="stylesheet"/>
-    <link href="css/style.min.css" rel="stylesheet"/>
-    <link href="css/style-responsive.min.css" rel="stylesheet"/>
-    <link href="css/retina.css" rel="stylesheet"/>
+    <link href="${ctx}/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="${ctx}/css/bootstrap-responsive.min.css" rel="stylesheet"/>
+    <link href="${ctx}/css/style.min.css" rel="stylesheet"/>
+    <link href="${ctx}/css/style-responsive.min.css" rel="stylesheet"/>
+    <link href="${ctx}/css/retina.css" rel="stylesheet"/>
     <!-- end: CSS -->
 
 
     <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"/>
-    <link id="ie-style" href="css/ie.css" rel="stylesheet">
+    <link id="ie-style" href="${ctx}/css/ie.css" rel="stylesheet">
     <![endif]-->
 
     <!--[if IE 9]>
-    <link id="ie9style" href="css/ie9.css" rel="stylesheet">
+    <link id="ie9style" href="${ctx}/css/ie9.css" rel="stylesheet">
     <![endif]-->
 
     <!-- start: Favicon and Touch Icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png"/>
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png"/>
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png"/>
-    <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png"/>
-    <link rel="shortcut icon" href="ico/favicon.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="${ctx}/ico/apple-touch-icon-144-precomposed.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="${ctx}/ico/apple-touch-icon-114-precomposed.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="${ctx}/ico/apple-touch-icon-72-precomposed.png"/>
+    <link rel="apple-touch-icon-precomposed" href="${ctx}/ico/apple-touch-icon-57-precomposed.png"/>
+    <link rel="shortcut icon" href="${ctx}/ico/favicon.png"/>
     <!-- end: Favicon and Touch Icons -->
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -216,7 +216,7 @@
                             </li>
                             <li>
                                 <a href="#">
-                                    <span class="avatar"><img src="img/avatar.jpg" alt="Avatar"/></span>
+                                    <span class="avatar"><img src="${ctx}/img/avatar.jpg" alt="Avatar"/></span>
                                     <span class="header">
 											<span class="from">
 										    	Łukasz Holeczek
@@ -232,7 +232,7 @@
                             </li>
                             <li>
                                 <a href="#">
-                                    <span class="avatar"><img src="img/avatar2.jpg" alt="Avatar"/></span>
+                                    <span class="avatar"><img src="${ctx}/img/avatar2.jpg" alt="Avatar"/></span>
                                     <span class="header">
 											<span class="from">
 										    	Megan Abott
@@ -248,7 +248,7 @@
                             </li>
                             <li>
                                 <a href="#">
-                                    <span class="avatar"><img src="img/avatar3.jpg" alt="Avatar"/></span>
+                                    <span class="avatar"><img src="${ctx}/img/avatar3.jpg" alt="Avatar"/></span>
                                     <span class="header">
 											<span class="from">
 										    	Kate Ross
@@ -264,7 +264,7 @@
                             </li>
                             <li>
                                 <a href="#">
-                                    <span class="avatar"><img src="img/avatar4.jpg" alt="Avatar"/></span>
+                                    <span class="avatar"><img src="${ctx}/img/avatar4.jpg" alt="Avatar"/></span>
                                     <span class="header">
 											<span class="from">
 										    	Julie Blank
@@ -280,7 +280,7 @@
                             </li>
                             <li>
                                 <a href="#">
-                                    <span class="avatar"><img src="img/avatar5.jpg" alt="Avatar"/></span>
+                                    <span class="avatar"><img src="${ctx}/img/avatar5.jpg" alt="Avatar"/></span>
                                     <span class="header">
 											<span class="from">
 										    	Jane Sanders
@@ -308,7 +308,7 @@
                     <!-- start: User Dropdown -->
                     <li class="dropdown">
                         <a class="btn account dropdown-toggle" data-toggle="dropdown" href="#">
-                            <div class="avatar"><img src="img/avatar.jpg" alt="Avatar"/></div>
+                            <div class="avatar"><img src="${ctx}/img/avatar.jpg" alt="Avatar"/></div>
                             <div class="user">
                                 <span class="hello">Welcome!</span>
                                 <span class="name">Łukasz Holeczek</span>
@@ -406,68 +406,68 @@
                     <div class="box-content">
                         <div class="masonry-gallery">
                             <div id="image-1" class="masonry-thumb">
-                                <a style="background:url(img/gallery/photo1.jpg)" title="Sample Image 1"
-                                   href="img/gallery/photo1.jpg"><img class="grayscale" src="img/gallery/photo1.jpg"
+                                <a style="background:url(${ctx}/img/gallery/photo1.jpg)" title="Sample Image 1"
+                                   href="${ctx}/img/gallery/photo1.jpg"><img class="grayscale" src="${ctx}/img/gallery/photo1.jpg"
                                                                       alt="Sample Image 1"/></a>
                             </div>
                             <div id="image-2" class="masonry-thumb">
-                                <a style="background:url(img/gallery/photo2.jpg)" title="Sample Image 2"
-                                   href="img/gallery/photo2.jpg"><img class="grayscale" src="img/gallery/photo2.jpg"
+                                <a style="background:url(${ctx}/img/gallery/photo2.jpg)" title="Sample Image 2"
+                                   href="${ctx}/img/gallery/photo2.jpg"><img class="grayscale" src="${ctx}/img/gallery/photo2.jpg"
                                                                       alt="Sample Image 2"/></a>
                             </div>
                             <div id="image-3" class="masonry-thumb">
-                                <a style="background:url(img/gallery/photo3.jpg)" title="Sample Image 3"
-                                   href="img/gallery/photo3.jpg"><img class="grayscale" src="img/gallery/photo3.jpg"
+                                <a style="background:url(${ctx}/img/gallery/photo3.jpg)" title="Sample Image 3"
+                                   href="${ctx}/img/gallery/photo3.jpg"><img class="grayscale" src="${ctx}/img/gallery/photo3.jpg"
                                                                       alt="Sample Image 3"/></a>
                             </div>
                             <div id="image-4" class="masonry-thumb">
-                                <a style="background:url(img/gallery/photo4.jpg)" title="Sample Image 4"
-                                   href="img/gallery/photo4.jpg"><img class="grayscale" src="img/gallery/photo4.jpg"
+                                <a style="background:url(${ctx}/img/gallery/photo4.jpg)" title="Sample Image 4"
+                                   href="${ctx}/img/gallery/photo4.jpg"><img class="grayscale" src="${ctx}/img/gallery/photo4.jpg"
                                                                       alt="Sample Image 4"/></a>
                             </div>
                             <div id="image-5" class="masonry-thumb">
-                                <a style="background:url(img/gallery/photo5.jpg)" title="Sample Image 5"
-                                   href="img/gallery/photo5.jpg"><img class="grayscale" src="img/gallery/photo5.jpg"
+                                <a style="background:url(${ctx}/img/gallery/photo5.jpg)" title="Sample Image 5"
+                                   href="${ctx}/img/gallery/photo5.jpg"><img class="grayscale" src="${ctx}/img/gallery/photo5.jpg"
                                                                       alt="Sample Image 5"/></a>
                             </div>
                             <div id="image-6" class="masonry-thumb">
-                                <a style="background:url(img/gallery/photo6.jpg)" title="Sample Image 6"
-                                   href="img/gallery/photo6.jpg"><img class="grayscale" src="img/gallery/photo6.jpg"
+                                <a style="background:url(${ctx}/img/gallery/photo6.jpg)" title="Sample Image 6"
+                                   href="${ctx}/img/gallery/photo6.jpg"><img class="grayscale" src="${ctx}/img/gallery/photo6.jpg"
                                                                       alt="Sample Image 6"/></a>
                             </div>
                             <div id="image-7" class="masonry-thumb">
-                                <a style="background:url(img/gallery/photo7.jpg)" title="Sample Image 7"
-                                   href="img/gallery/photo7.jpg"><img class="grayscale" src="img/gallery/photo7.jpg"
+                                <a style="background:url(${ctx}/img/gallery/photo7.jpg)" title="Sample Image 7"
+                                   href="${ctx}/img/gallery/photo7.jpg"><img class="grayscale" src="${ctx}/img/gallery/photo7.jpg"
                                                                       alt="Sample Image 7"/></a>
                             </div>
                             <div id="image-8" class="masonry-thumb">
-                                <a style="background:url(img/gallery/photo8.jpg)" title="Sample Image 8"
-                                   href="img/gallery/photo8.jpg"><img class="grayscale" src="img/gallery/photo8.jpg"
+                                <a style="background:url(${ctx}/img/gallery/photo8.jpg)" title="Sample Image 8"
+                                   href="${ctx}/img/gallery/photo8.jpg"><img class="grayscale" src="${ctx}/img/gallery/photo8.jpg"
                                                                       alt="Sample Image 8"/></a>
                             </div>
                             <div id="image-9" class="masonry-thumb">
-                                <a style="background:url(img/gallery/photo9.jpg)" title="Sample Image 9"
-                                   href="img/gallery/photo9.jpg"><img class="grayscale" src="img/gallery/photo9.jpg"
+                                <a style="background:url(${ctx}/img/gallery/photo9.jpg)" title="Sample Image 9"
+                                   href="${ctx}/img/gallery/photo9.jpg"><img class="grayscale" src="${ctx}/img/gallery/photo9.jpg"
                                                                       alt="Sample Image 9"/></a>
                             </div>
                             <div id="image-10" class="masonry-thumb">
-                                <a style="background:url(img/gallery/photo10.jpg)" title="Sample Image 10"
-                                   href="img/gallery/photo10.jpg"><img class="grayscale" src="img/gallery/photo10.jpg"
+                                <a style="background:url(${ctx}/img/gallery/photo10.jpg)" title="Sample Image 10"
+                                   href="${ctx}/img/gallery/photo10.jpg"><img class="grayscale" src="${ctx}/img/gallery/photo10.jpg"
                                                                        alt="Sample Image 10"/></a>
                             </div>
                             <div id="image-11" class="masonry-thumb">
-                                <a style="background:url(img/gallery/photo11.jpg)" title="Sample Image 11"
-                                   href="img/gallery/photo11.jpg"><img class="grayscale" src="img/gallery/photo11.jpg"
+                                <a style="background:url(${ctx}/img/gallery/photo11.jpg)" title="Sample Image 11"
+                                   href="${ctx}/img/gallery/photo11.jpg"><img class="grayscale" src="${ctx}/img/gallery/photo11.jpg"
                                                                        alt="Sample Image 11"/></a>
                             </div>
                             <div id="image-12" class="masonry-thumb">
-                                <a style="background:url(img/gallery/photo12.jpg)" title="Sample Image 12"
-                                   href="img/gallery/photo12.jpg"><img class="grayscale" src="img/gallery/photo12.jpg"
+                                <a style="background:url(${ctx}/img/gallery/photo12.jpg)" title="Sample Image 12"
+                                   href="${ctx}/img/gallery/photo12.jpg"><img class="grayscale" src="${ctx}/img/gallery/photo12.jpg"
                                                                        alt="Sample Image 12"/></a>
                             </div>
                             <div id="image-13" class="masonry-thumb">
-                                <a style="background:url(img/gallery/photo13.jpg)" title="Sample Image 13"
-                                   href="img/gallery/photo13.jpg"><img class="grayscale" src="img/gallery/photo13.jpg"
+                                <a style="background:url(${ctx}/img/gallery/photo13.jpg)" title="Sample Image 13"
+                                   href="${ctx}/img/gallery/photo13.jpg"><img class="grayscale" src="${ctx}/img/gallery/photo13.jpg"
                                                                        alt="Sample Image 13"/></a>
                             </div>
                         </div>
@@ -510,45 +510,45 @@
 </div><!--/.fluid-container-->
 
 <!-- start: JavaScript-->
-<script src="js/jquery-1.10.2.min.js"/>
-<script src="js/jquery-migrate-1.2.1.min.js"/>
-<script src="js/jquery-ui-1.10.3.custom.min.js"/>
-<script src="js/jquery.ui.touch-punch.js"/>
-<script src="js/modernizr.js"/>
-<script src="js/bootstrap.min.js"/>
-<script src="js/jquery.cookie.js"/>
-<script src='js/fullcalendar.min.js'/>
-<script src='js/jquery.dataTables.min.js'/>
-<script src="js/excanvas.js"/>
-<script src="js/jquery.flot.js"/>
-<script src="js/jquery.flot.pie.js"/>
-<script src="js/jquery.flot.stack.js"/>
-<script src="js/jquery.flot.resize.min.js"/>
-<script src="js/jquery.flot.time.js"/>
+<script src="${ctx}/js/jquery-1.10.2.min.js"/>
+<script src="${ctx}/js/jquery-migrate-1.2.1.min.js"/>
+<script src="${ctx}/js/jquery-ui-1.10.3.custom.min.js"/>
+<script src="${ctx}/js/jquery.ui.touch-punch.js"/>
+<script src="${ctx}/js/modernizr.js"/>
+<script src="${ctx}/js/bootstrap.min.js"/>
+<script src="${ctx}/js/jquery.cookie.js"/>
+<script src='${ctx}/js/fullcalendar.min.js'/>
+<script src='${ctx}/js/jquery.dataTables.min.js'/>
+<script src="${ctx}/js/excanvas.js"/>
+<script src="${ctx}/js/jquery.flot.js"/>
+<script src="${ctx}/js/jquery.flot.pie.js"/>
+<script src="${ctx}/js/jquery.flot.stack.js"/>
+<script src="${ctx}/js/jquery.flot.resize.min.js"/>
+<script src="${ctx}/js/jquery.flot.time.js"/>
 
-<script src="js/jquery.chosen.min.js"/>
-<script src="js/jquery.uniform.min.js"/>
-<script src="js/jquery.cleditor.min.js"/>
-<script src="js/jquery.noty.js"/>
-<script src="js/jquery.elfinder.min.js"/>
-<script src="js/jquery.raty.min.js"/>
-<script src="js/jquery.iphone.toggle.js"/>
-<script src="js/jquery.uploadify-3.1.min.js"/>
-<script src="js/jquery.gritter.min.js"/>
-<script src="js/jquery.imagesloaded.js"/>
-<script src="js/jquery.masonry.min.js"/>
-<script src="js/jquery.knob.modified.js"/>
-<script src="js/jquery.sparkline.min.js"/>
-<script src="js/counter.min.js"/>
-<script src="js/raphael.2.1.0.min.js"/>
-<script src="js/justgage.1.0.1.min.js"/>
-<script src="js/jquery.autosize.min.js"/>
-<script src="js/retina.js"/>
-<script src="js/jquery.placeholder.min.js"/>
-<script src="js/wizard.min.js"/>
-<script src="js/core.min.js"/>
-<script src="js/charts.min.js"/>
-<script src="js/custom.min.js"/>
+<script src="${ctx}/js/jquery.chosen.min.js"/>
+<script src="${ctx}/js/jquery.uniform.min.js"/>
+<script src="${ctx}/js/jquery.cleditor.min.js"/>
+<script src="${ctx}/js/jquery.noty.js"/>
+<script src="${ctx}/js/jquery.elfinder.min.js"/>
+<script src="${ctx}/js/jquery.raty.min.js"/>
+<script src="${ctx}/js/jquery.iphone.toggle.js"/>
+<script src="${ctx}/js/jquery.uploadify-3.1.min.js"/>
+<script src="${ctx}/js/jquery.gritter.min.js"/>
+<script src="${ctx}/js/jquery.imagesloaded.js"/>
+<script src="${ctx}/js/jquery.masonry.min.js"/>
+<script src="${ctx}/js/jquery.knob.modified.js"/>
+<script src="${ctx}/js/jquery.sparkline.min.js"/>
+<script src="${ctx}/js/counter.min.js"/>
+<script src="${ctx}/js/raphael.2.1.0.min.js"/>
+<script src="${ctx}/js/justgage.1.0.1.min.js"/>
+<script src="${ctx}/js/jquery.autosize.min.js"/>
+<script src="${ctx}/js/retina.js"/>
+<script src="${ctx}/js/jquery.placeholder.min.js"/>
+<script src="${ctx}/js/wizard.min.js"/>
+<script src="${ctx}/js/core.min.js"/>
+<script src="${ctx}/js/charts.min.js"/>
+<script src="${ctx}/js/custom.min.js"/>
 <!-- end: JavaScript-->
 
 

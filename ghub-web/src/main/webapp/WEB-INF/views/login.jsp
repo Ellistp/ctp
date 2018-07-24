@@ -31,7 +31,7 @@
     <link id="ie-style" href="${ctx}/css/ie.css" rel="stylesheet"/>
 
     <!--[if IE 9]>
-    <link id="ie9style" href="${ctx}/css/ie9.css" rel="stylesheet">
+    <link id="ie9style" href="${ctx}/${ctx}/css/ie9.css" rel="stylesheet">
     <![endif]-->
 
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="${ctx}/ico/apple-touch-icon-144-precomposed.png"/>
