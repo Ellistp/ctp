@@ -27,7 +27,7 @@
 
 
     <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"/>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <link id="ie-style" href="${ctx}/css/ie.css" rel="stylesheet"/>
 
     <!--[if IE 9]>
@@ -49,7 +49,7 @@
         <div class="row-fluid">
             <div class="login-box">
                 <h2>Login to your account</h2>
-                <form class="form-horizontal" id="loginForm" method="post">
+                <form class="form-horizontal" id="loginForm" method="post" enctype="multipart/form-data">
                     <fieldset>
                         <input class="input-large span12" name="userName" id="userName" type="text" placeholder="type username"/>
                         <input class="input-large span12" name="passWord" id="passWord" type="password" placeholder="type password"/>
@@ -70,61 +70,44 @@
     </div>
 </div>
 
-<script src="${ctx}/js/jquery-3.3.1.js"/>
-<script src="${ctx}/js/jquery-migrate-1.2.1.min.js"/>
-<script src="${ctx}/js/jquery-ui-1.10.3.custom.min.js"/>
-<script src="${ctx}/js/jquery.ui.touch-punch.js"/>
-<script src="${ctx}/js/modernizr.js"/>
-<script src="${ctx}/js/bootstrap.min.js"/>
-<script src="${ctx}/js/jquery.cookie.js"/>
-<script src='${ctx}/js/fullcalendar.min.js'/>
-<script src='${ctx}/js/jquery.dataTables.min.js'/>
-<script src="${ctx}/js/excanvas.js"/>
-<script src="${ctx}/js/jquery.flot.js"/>
-<script src="${ctx}/js/jquery.flot.pie.js"/>
-<script src="${ctx}/js/jquery.flot.stack.js"/>
-<script src="${ctx}/js/jquery.flot.resize.min.js"/>
-<script src="${ctx}/js/jquery.flot.time.js"/>
-<script src="${ctx}/js/jquery.chosen.min.js"/>
-<script src="${ctx}/js/jquery.uniform.min.js"/>
-<script src="${ctx}/js/jquery.cleditor.min.js"/>
-<script src="${ctx}/js/jquery.noty.js"/>
-<script src="${ctx}/js/jquery.elfinder.min.js"/>
-<script src="${ctx}/js/jquery.raty.min.js"/>
-<script src="${ctx}/js/jquery.iphone.toggle.js"/>
-<script src="${ctx}/js/jquery.uploadify-3.1.min.js"/>
-<script src="${ctx}/js/jquery.gritter.min.js"/>
-<script src="${ctx}/js/jquery.imagesloaded.js"/>
-<script src="${ctx}/js/jquery.masonry.min.js"/>
-<script src="${ctx}/js/jquery.knob.modified.js"/>
-<script src="${ctx}/js/jquery.sparkline.min.js"/>
-<script src="${ctx}/js/counter.min.js"/>
-<script src="${ctx}/js/raphael.2.1.0.min.js"/>
-<script src="${ctx}/js/justgage.1.0.1.min.js"/>
-<script src="${ctx}/js/jquery.autosize.min.js"/>
-<script src="${ctx}/js/retina.js"/>
-<script src="${ctx}/js/jquery.placeholder.min.js"/>
-<script src="${ctx}/js/wizard.min.js"/>
-<script src="${ctx}/js/core.min.js"/>
-<script src="${ctx}/js/charts.min.js"/>
-<script src="${ctx}/js/custom.min.js"/>
-<%--<script src="${ctx}/js/app.js"/>--%>
-<script>
-  function login() {
-        $.ajax({
-            type: "POST",
-            dataType: "json",
-            url: "/api/ghub/security/login",
-            data: $('#loginForm').serialize(),
-            success: function (result) {
-                console.log(result);
-                alert("SUCCESS");
-            },
-            error : function() {
-                alert("异常！");
-            }
-        });
-    }
-</script>
+<script src="${ctx}/js/jquery-3.3.1.js"></script>
+<script src="${ctx}/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="${ctx}/js/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="${ctx}/js/jquery.ui.touch-punch.js"></script>
+<script src="${ctx}/js/modernizr.js"></script>
+<script src="${ctx}/js/bootstrap.min.js"></script>
+<script src="${ctx}/js/jquery.cookie.js"></script>
+<script src='${ctx}/js/fullcalendar.min.js'></script>
+<script src='${ctx}/js/jquery.dataTables.min.js'></script>
+<script src="${ctx}/js/excanvas.js"></script>
+<script src="${ctx}/js/jquery.flot.js"></script>
+<script src="${ctx}/js/jquery.flot.pie.js"></script>
+<script src="${ctx}/js/jquery.flot.stack.js"></script>
+<script src="${ctx}/js/jquery.flot.resize.min.js"></script>
+<script src="${ctx}/js/jquery.flot.time.js"></script>
+<script src="${ctx}/js/jquery.chosen.min.js"></script>
+<script src="${ctx}/js/jquery.uniform.min.js"></script>
+<script src="${ctx}/js/jquery.cleditor.min.js"></script>
+<script src="${ctx}/js/jquery.noty.js"></script>
+<script src="${ctx}/js/jquery.elfinder.min.js"></script>
+<script src="${ctx}/js/jquery.raty.min.js"></script>
+<script src="${ctx}/js/jquery.iphone.toggle.js"></script>
+<script src="${ctx}/js/jquery.uploadify-3.1.min.js"></script>
+<script src="${ctx}/js/jquery.gritter.min.js"></script>
+<script src="${ctx}/js/jquery.imagesloaded.js"></script>
+<script src="${ctx}/js/jquery.masonry.min.js"></script>
+<script src="${ctx}/js/jquery.knob.modified.js"></script>
+<script src="${ctx}/js/jquery.sparkline.min.js"></script>
+<script src="${ctx}/js/counter.min.js"></script>
+<script src="${ctx}/js/raphael.2.1.0.min.js"></script>
+<script src="${ctx}/js/justgage.1.0.1.min.js"></script>
+<script src="${ctx}/js/jquery.autosize.min.js"></script>
+<script src="${ctx}/js/retina.js"></script>
+<script src="${ctx}/js/jquery.placeholder.min.js"></script>
+<script src="${ctx}/js/wizard.min.js"></script>
+<script src="${ctx}/js/core.min.js"></script>
+<script src="${ctx}/js/charts.min.js"></script>
+<script src="${ctx}/js/custom.min.js"></script>
+<script src="${ctx}/js/app.js"></script>
 </body>
 </html>

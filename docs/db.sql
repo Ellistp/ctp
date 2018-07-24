@@ -5,12 +5,17 @@ use ghub;
 ## 用户表 ##
 DROP TABLE IF EXISTS acc_user;
 CREATE TABLE `acc_user` (
-`id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
-`gmt_create` datetime NOT NULL COMMENT '创建时间',
-`gmt_modified` datetime NOT NULL COMMENT '修改时间',
-`name` varchar(128) DEFAULT NULL COMMENT '真实姓名',
-PRIMARY KEY (`id`)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户';
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `gmt_create` datetime NOT NULL COMMENT '创建时间',
+  `gmt_modified` datetime NOT NULL COMMENT '修改时间',
+  `account` varchar(128) NOT NULL COMMENT '账户名',
+  `password` varchar(128) NOT NULL COMMENT '密码',
+  `salt` varchar(32) NOT NULL COMMENT '加盐',
+  `nick_name` varchar(128) NOT NULL COMMENT '用户昵称',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `idx_account` (`account`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户';
+insert into `acc_user` (`id`, `gmt_create`, `gmt_modified`, `account`, `password`, `salt`, `nick_name`) values('1','2018-07-24 15:56:37','2018-07-24 15:56:39','zhangsan','46a9e4b7118f3a2b4c7568a26b5aefa5','9c6bdd0d12eefaf42ecf978779ac6b2a','张三');
 
 
 ## 系统日志表 ##

@@ -120,15 +120,15 @@ public class ControllerAop {
                 }
             }else {
                 //其他请求 链接到登录页面
-                request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request,response);
+                request.getRequestDispatcher(Constant.LOGIN_PAGE_PATH).forward(request,response);
             }
         }else {
             //登录成功 对请求做一些校验工作 ，例如token的校验
             //post请求
             if(StringUtils.equals(RequestMethod.POST.toString(),request.getMethod())){
-
+                request.getRequestDispatcher(Constant.INDEX_PAGE_PATH).forward(request,response);
             }else {
-
+                request.getRequestDispatcher(Constant.INDEX_PAGE_PATH).forward(request,response);
             }
         }
         return joinPoint.proceed();

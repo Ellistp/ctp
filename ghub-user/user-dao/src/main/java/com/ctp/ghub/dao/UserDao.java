@@ -1,7 +1,5 @@
 package com.ctp.ghub.dao;
 
-import java.util.List;
-
 import com.ctp.ghub.model.UserDO;
 
 /**
@@ -38,8 +36,9 @@ public interface UserDao {
     UserDO selectById(Long id);
 
     /**
-     * 查询所有user 记录
+     * 根据账户名和密码查询用户信息
+     * @param account
      * @return
      */
-    List<UserDO> listAllUserDO();
+    UserDO selectByAccount(String account);
 }

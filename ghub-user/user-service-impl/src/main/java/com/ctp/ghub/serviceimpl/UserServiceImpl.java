@@ -1,5 +1,6 @@
 package com.ctp.ghub.serviceimpl;
 
+import com.ctp.ghub.param.LoginQueryParam;
 import com.ctp.ghub.service.UserService;
 import com.ctp.ghub.dao.UserDao;
 import com.ctp.ghub.model.UserDO;
@@ -38,7 +39,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<UserDO> listAllUserDO() {
-        return this.userDao.listAllUserDO();
+    public UserDO selectByAccount(String account) {
+        return this.userDao.selectByAccount(account);
     }
 }
