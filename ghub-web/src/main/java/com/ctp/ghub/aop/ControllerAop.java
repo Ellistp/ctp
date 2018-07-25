@@ -40,9 +40,9 @@ public class ControllerAop {
      * 定义所有的 controller 切入点
      * 配置切入点,该方法无方法体,主要为方便同类中其他方法使用此处配置的切入点
      */
-    @Pointcut("within(@org.springframework.stereotype.Controller *) && "
-        + "@annotation(org.springframework.web.bind.annotation.RequestMapping)")
-//    @Pointcut("execution(public * com.ctp.ghub.controller.*.*(..))")
+    //@Pointcut("within(@org.springframework.stereotype.Controller *) && "
+    //    + "@annotation(org.springframework.web.bind.annotation.RequestMapping)")
+    @Pointcut("execution(public * com.ctp.ghub.controller.*.*(..))")
     public void controller() {
     }
 
@@ -126,8 +126,12 @@ public class ControllerAop {
             //登录成功 对请求做一些校验工作 ，例如token的校验
             //post请求
             if(StringUtils.equals(RequestMethod.POST.toString(),request.getMethod())){
+
+                //跳转到首页
                 request.getRequestDispatcher(Constant.INDEX_PAGE_PATH).forward(request,response);
             }else {
+
+                //跳转到首页
                 request.getRequestDispatcher(Constant.INDEX_PAGE_PATH).forward(request,response);
             }
         }
