@@ -383,8 +383,10 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
     <build>
         <plugins>
+            <!-- Maven插件 配置 -->
             <plugin>
                 <groupId>org.codehaus.sonar</groupId>
                 <artifactId>sonar-maven-plugin</artifactId>
@@ -437,6 +439,7 @@
 
         </plugins>
 
+        <!--配置Maven 对resource文件 过滤 -->
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
