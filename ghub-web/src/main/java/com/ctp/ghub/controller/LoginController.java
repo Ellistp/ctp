@@ -43,7 +43,7 @@ public class LoginController {
     PasswordEncryptService passwordEncryptService;
 
     @RequestMapping(value = "/loginPage",method = RequestMethod.GET)
-    public ModelAndView index(){
+    public ModelAndView loginPage(){
         return new ModelAndView("login");
     }
 
@@ -58,7 +58,7 @@ public class LoginController {
             Subject subject = SecurityUtils.getSubject();
             // 已登陆则 跳到首页
             if (subject.isAuthenticated()) {
-                return "redirect:/index";
+                return "redirect:/api/ghub/index";
             }
             if (result.hasErrors()) {
                 model.addAttribute("error", "参数错误！");
@@ -74,7 +74,7 @@ public class LoginController {
             model.addAttribute("error", "用户名或密码错误 ！");
             return "login";
         }
-        return "redirect:/index";
+        return "redirect:/api/ghub/index";
     }
 
     /**

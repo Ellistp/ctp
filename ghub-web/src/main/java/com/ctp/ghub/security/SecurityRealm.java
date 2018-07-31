@@ -23,10 +23,10 @@ import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
-@Component(value = "securityRealm")
+@Service(value = "securityRealm")
 public class SecurityRealm extends AuthorizingRealm {
 
     @Resource

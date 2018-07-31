@@ -13,6 +13,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class PageController {
 
     /**
+     * 首页
+     */
+    @RequestMapping("/index")
+    public String index() {
+        return "index";
+    }
+
+    /**
      * dashboard页
      */
     @RequestMapping("/dashboard")
