@@ -26,7 +26,7 @@
 
     <!-- 声明需要暴露的服务接口 -->
     <dubbo:service interface="com.ctp.ghub.service.UserService" ref="userService" timeout="1200000"/>
-    <dubbo:service interface="com.ctp.ghub.service.UserRoleRelationService" ref="userRoleRelationService" timeout="1200000"/>
+    <dubbo:service interface="com.ctp.ghub.service.UserRoleService" ref="userRoleService" timeout="1200000"/>
 
     <!-- 开发环境配置 -->
     <beans profile="dev">

@@ -11,6 +11,7 @@
         <result column="password" property="password" jdbcType="VARCHAR"/>
         <result column="salt" property="salt" jdbcType="VARCHAR"/>
         <result column="nick_name" property="nickName" jdbcType="VARCHAR"/>
+        <result column="state" property="state" jdbcType="VARCHAR"/>
     </resultMap>
 
     <sql id="cols" >
@@ -20,7 +21,8 @@
         account,
         password,
         salt,
-        nick_name
+        nick_name,
+        state
     </sql>
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.ctp.ghub.model.UserDO" >
@@ -30,7 +32,8 @@
         account,
         password,
         salt,
-        nick_name
+        nick_name,
+        state
         )
         values (
         now(),
@@ -38,7 +41,8 @@
         #{account},
         #{password},
         #{salt},
-        #{nickName}
+        #{nickName},
+        #{state}
         )
     </insert>
 

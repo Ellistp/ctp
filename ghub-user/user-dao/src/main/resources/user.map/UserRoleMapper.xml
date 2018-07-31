@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ctp.ghub.dao.UserRoleDao" >
+
+    <resultMap id="BaseUserRoleResultMap" type="com.ctp.ghub.model.UserRoleDO" >
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP"/>
+        <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP"/>
+        <result column="user_id" property="userId" jdbcType="BIGINT"/>
+        <result column="role_id" property="roleId" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <sql id="cols" >
+        id,
+        gmt_create,
+        gmt_modified,
+        user_id,
+        role_id
+    </sql>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.ctp.ghub.model.UserRoleDO" >
+        insert into acc_user_role (
+        gmt_create,
+        gmt_modified,
+        user_id,
+        role_id
+        )
+        values (
+        now(),
+        now(),
+        #{userId},
+        #{roleId}
+        )
+    </insert>
+
+    <delete id="delete" parameterType="java.lang.Long" >
+        delete from acc_user_role
+        where id = #{id}
+    </delete>
+
+    <update id="update" parameterType="com.ctp.ghub.model.UserRoleDO" >
+        UPDATE acc_user_role
+        SET gmt_modified = now()
+        WHERE id = #{id}
+    </update>
+
+    <select id="selectById" resultMap="BaseUserRoleResultMap" parameterType="java.lang.Long" >
+        select
+        <include refid="cols" />
+        from acc_user_role
+        where id = #{id}
+    </select>
+
+    <select id="selectRolesByUserId" resultMap="BaseUserRoleResultMap" parameterType="java.lang.Long" >
+        select
+        <include refid="cols" />
+        from acc_user_role
+        where user_id = #{userId}
+    </select>
+</mapper>

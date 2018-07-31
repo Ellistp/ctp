@@ -26,11 +26,13 @@ public class UserDO implements Serializable{
 
     private String nickName;
 
+    private String state;
+
     public UserDO() {
     }
 
     public UserDO(Long id, Date gmtCreate, Date gmtModified, String account, String password, String salt,
-                  String nickName) {
+                  String nickName, String state) {
         this.id = id;
         this.gmtCreate = gmtCreate;
         this.gmtModified = gmtModified;
@@ -38,6 +40,7 @@ public class UserDO implements Serializable{
         this.password = password;
         this.salt = salt;
         this.nickName = nickName;
+        this.state = state;
     }
 
     public Long getId() {
@@ -96,6 +99,14 @@ public class UserDO implements Serializable{
         this.nickName = nickName;
     }
 
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) { return true; }
@@ -121,6 +132,7 @@ public class UserDO implements Serializable{
             ", password='" + password + '\'' +
             ", salt='" + salt + '\'' +
             ", nickName='" + nickName + '\'' +
+            ", state='" + state + '\'' +
             '}';
     }
 }

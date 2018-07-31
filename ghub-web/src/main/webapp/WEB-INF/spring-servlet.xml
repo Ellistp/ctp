@@ -14,7 +14,7 @@
     http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!-- 注解扫描 -->
-    <context:component-scan base-package="com.ctp.ghub.controller"/>
+    <context:component-scan base-package="com.ctp.ghub"/>
 
     <!-- 静态资源(js、image等)的访问 -->
     <mvc:default-servlet-handler/>
@@ -22,8 +22,6 @@
     <!-- 启动对@AspectJ注解的支持 proxy-target-class设置为true表示通知spring使用
     cglib而不是jdk的来生成代理方法，这样AOP可以拦截到Controller -->
     <aop:aspectj-autoproxy proxy-target-class="true"/>
-    <!-- 这里要手动配置controllerAop bean ,因为上面的扫描只扫描到com.ctp.ghub.controller 目录 -->
-    <bean id="controllerAop" class="com.ctp.ghub.aop.ControllerAop"/>
 
     <!-- 使用fastjson 配置 ,支持转化的请求数据类型为三种 -->
     <!-- mvc:annotation-driven 会自动注册RequestMappingHandlerMapping与
@@ -60,6 +58,13 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <!-- 配置springMVC处理上传文件的信息 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="utf-8"/>
+        <property name="maxUploadSize" value="10485760000"/>
+        <property name="maxInMemorySize" value="40960"/>
+    </bean>
+
     <!-- 配置全局异常处理器 -->
-    <bean id="exceptionResolver" class="com.ctp.ghub.exception.SpringGlobalExceptionHandler"></bean>
+    <bean id="exceptionResolver" class="com.ctp.ghub.exception.SpringGlobalExceptionHandler"/>
 </beans>
