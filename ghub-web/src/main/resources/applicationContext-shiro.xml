@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd">
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
     <description>apache shiro配置</description>
 
@@ -12,17 +12,21 @@
         <property name="loginUrl" value="/api/ghub/loginPage"/>
         <property name="successUrl" value="/index"/>
         <property name="unauthorizedUrl" value="/api/ghub/401"/>
-        <property name="filterChainDefinitions">
-        <value>
-        <!-- 静态资源允许访问 -->
-        /app/** = anon
-        /assets/** = anon
-        <!-- 登录页允许访问 -->
-        /api/ghub/login = anon
-        <!-- 其他资源需要认证 -->
-        /** = authc
-        </value>
+        <property name="filters">
+            <util:map>
+                <entry key="user" value-ref="shiroUserFilter"/>
+            </util:map>
         </property>
+        <property name="filterChainDefinitions" value="#{shiroConfigLoader.loadFilterConfig()}">
+        </property>
+    </bean>
+
+    <!-- 用户登录过滤器 -->
+    <bean id="shiroUserFilter" class="com.ctp.ghub.security.ShiroUserLoginFilter"/>
+
+    <!-- Shiro的配置加载器 -->
+    <bean id="shiroConfigLoader" class="com.ctp.ghub.security.ShiroPropertiesLoader">
+        <property name="shiroConfigPath" value="shiro-filter.properties"/>
     </bean>
 
     <!-- 缓存管理器 使用Ehcache实现 -->
@@ -43,14 +47,14 @@
         <property name="realm" ref="securityRealm"/>
     </bean>
 
-    <bean id = "securityRealm" class="com.ctp.ghub.security.SecurityRealm"/>
+    <bean id = "securityRealm" class="com.ctp.ghub.security.SecurityRealm"></bean>
 
     <!-- 密码比较器 -->
-    <bean id="credentialsMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
-        <property name="hashAlgorithmName" value="md5"/>
-        <property name="hashIterations" value="2"/>
-        <property name="storedCredentialsHexEncoded" value="true"/>
-    </bean>
+    <!--<bean id="credentialsMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">-->
+        <!--<property name="hashAlgorithmName" value="md5"/>-->
+        <!--<property name="hashIterations" value="2"/>-->
+        <!--<property name="storedCredentialsHexEncoded" value="true"/>-->
+    <!--</bean>-->
 
     <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
         <property name="securityManager" ref="securityManager"/>

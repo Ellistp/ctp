@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import com.ctp.ghub.constant.Constant;
 import com.ctp.ghub.constant.PermissionSignConstant;
 import com.ctp.ghub.constant.RoleSignConstant;
 import com.ctp.ghub.model.LoginReqData;
@@ -68,7 +69,7 @@ public class LoginController {
             subject.login(new UsernamePasswordToken(loginReqData.getUsername(), loginReqData.getPassword(),false));
             // 验证成功在Session中保存用户信息
             UserDO userDO = this.userService.selectByAccount(loginReqData.getUsername());
-            request.getSession().setAttribute("userInfo", userDO);
+            request.getSession().setAttribute(Constant.SESSION_LOGIN_USER, userDO);
         } catch (AuthenticationException e) {
             // 身份验证失败
             model.addAttribute("error", "用户名或密码错误 ！");
@@ -85,7 +86,7 @@ public class LoginController {
      */
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logout(HttpSession session) {
-        session.removeAttribute("userInfo");
+        session.removeAttribute(Constant.SESSION_LOGIN_USER);
         // 登出操作
         Subject subject = SecurityUtils.getSubject();
         subject.logout();
