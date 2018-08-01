@@ -134,21 +134,21 @@
 
                         <!-- 测试权限控制 -->
                         <shiro:hasAnyRoles name="super_admin">
-                            <li>
-                                <a href="javascript:;">super_admin 拥有此角色</a>
-                            </li>
+                            <%--<li>--%>
+                                <%--<a href="javascript:;">super_admin 拥有此角色</a>--%>
+                            <%--</li>--%>
                         </shiro:hasAnyRoles>
 
                         <shiro:hasPermission name="user:create">
-                            <li>
-                                <a href="javascript:;">user:create 拥有此权限</a>
-                            </li>
+                            <%--<li>--%>
+                                <%--<a href="javascript:;">user:create 拥有此权限</a>--%>
+                            <%--</li>--%>
                         </shiro:hasPermission>
 
                         <shiro:hasPermission name="user:update">
-                            <li>
-                                <a href="javascript:;">user:update 拥有此权限</a>
-                            </li>
+                            <%--<li>--%>
+                                <%--<a href="javascript:;">user:update 拥有此权限</a>--%>
+                            <%--</li>--%>
                         </shiro:hasPermission>
 
                     </ul>
@@ -266,7 +266,6 @@
 </div>
 <script src="assets/plugins/respond.min.js"></script>
 <script src="assets/plugins/excanvas.min.js"></script>
-<![endif]-->
 <script src="assets/plugins/jquery-1.10.2.min.js" type="text/javascript"></script>
 <script src="assets/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
 <script src="assets/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>

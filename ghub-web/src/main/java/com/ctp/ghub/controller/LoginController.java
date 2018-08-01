@@ -65,7 +65,7 @@ public class LoginController {
                 return "login";
             }
             // 身份验证
-            subject.login(new UsernamePasswordToken(loginReqData.getUsername(), loginReqData.getPassword()));
+            subject.login(new UsernamePasswordToken(loginReqData.getUsername(), loginReqData.getPassword(),false));
             // 验证成功在Session中保存用户信息
             UserDO userDO = this.userService.selectByAccount(loginReqData.getUsername());
             request.getSession().setAttribute("userInfo", userDO);

@@ -85,13 +85,14 @@ public class SecurityRealm extends AuthorizingRealm {
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
         String account = String.valueOf(token.getPrincipal());
+        String password = new String((char[]) token.getCredentials());
         // 通过数据库进行验证
         UserDO userDO = this.userService.selectByAccount(account);
         if(userDO == null){
             //没找到帐号
             throw new UnknownAccountException();
         }
-        SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(account, userDO.getPassword(), new ShiroByteSource(userDO.getSalt()),getName());
+        SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(account, password, new ShiroByteSource(userDO.getSalt()),getName());
         return authenticationInfo;
     }
 }
