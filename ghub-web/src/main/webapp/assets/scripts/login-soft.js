@@ -277,7 +277,7 @@ var Login = function() {
     return {
         // main function to initiate the module
         init : function() {
-            console.log(12);
+            // console.log(12);
             handleLogin();
             handleForgetPassword();
             handleRegister();
