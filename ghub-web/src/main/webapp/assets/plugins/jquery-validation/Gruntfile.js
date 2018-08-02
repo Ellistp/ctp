@@ -25,8 +25,8 @@ grunt.initConfig({
 		},
 		all: {
 			files: {
-				'dist/jquery.validate.min.js': ['dist/jquery.validate.js'],
-				'dist/additional-methods.min.js': ['dist/additional-methods.js']
+				'jquery-validation-dist/jquery.validate.min.js': ['dist/jquery.validate.js'],
+				'jquery-validation-dist/additional-methods.min.js': ['dist/additional-methods.js']
 			}
 		}
 	},
@@ -36,7 +36,7 @@ grunt.initConfig({
 				'dist/additional-methods.js',
 				'dist/additional-methods.min.js',
 				'dist/jquery.validate.js',
-				'dist/jquery.validate.min.js',
+				'jquery-validation-dist/jquery.validate.min.js',
 				'README.md',
 				'changelog.txt',
 				'grunt.js',
