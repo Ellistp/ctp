@@ -62,7 +62,7 @@ public class LoginController {
                 return "redirect:/api/ghub/index";
             }
             if (result.hasErrors()) {
-                model.addAttribute("error", "参数错误！");
+                model.addAttribute("error", "参数校验错误！");
                 return "login";
             }
             // 身份验证
