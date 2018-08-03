@@ -50,14 +50,17 @@ public class ShiroByteSource implements ByteSource, Serializable {
                 o instanceof ByteSource || o instanceof File || o instanceof InputStream;
     }
 
+    @Override
     public byte[] getBytes() {
         return this.bytes;
     }
 
+    @Override
     public boolean isEmpty() {
         return this.bytes == null || this.bytes.length == 0;
     }
 
+    @Override
     public String toHex() {
         if ( this.cachedHex == null ) {
             this.cachedHex = Hex.encodeToString(getBytes());
@@ -65,6 +68,7 @@ public class ShiroByteSource implements ByteSource, Serializable {
         return this.cachedHex;
     }
 
+    @Override
     public String toBase64() {
         if ( this.cachedBase64 == null ) {
             this.cachedBase64 = Base64.encodeToString(getBytes());
@@ -72,10 +76,12 @@ public class ShiroByteSource implements ByteSource, Serializable {
         return this.cachedBase64;
     }
 
+    @Override
     public String toString() {
         return toBase64();
     }
 
+    @Override
     public int hashCode() {
         if (this.bytes == null || this.bytes.length == 0) {
             return 0;
@@ -83,6 +89,7 @@ public class ShiroByteSource implements ByteSource, Serializable {
         return Arrays.hashCode(this.bytes);
     }
 
+    @Override
     public boolean equals(Object o) {
         if (o == this) {
             return true;
