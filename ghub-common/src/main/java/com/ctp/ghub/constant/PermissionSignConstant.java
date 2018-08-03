@@ -7,15 +7,23 @@ package com.ctp.ghub.constant;
 public class PermissionSignConstant {
 
     /**
-     * 用户新增权限 标识
+     * 用户新增权限
      */
     public static final String USER_CREATE = "user:create";
 
     /**
-     * 用户删除权限 标识
+     * 用户删除权限
      */
     public static final String USER_DELETE = "user:delete";
 
+    /**
+     * 用户更新权限
+     */
     public static final String USER_UPDATE = "user:update";
+
+    /**
+     * 用户查询权限
+     */
+    public static final String USER_SELECT = "user:select";
 
 }

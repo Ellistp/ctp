@@ -14,15 +14,5 @@ public class RoleSignConstant {
     /**
      * 客户经理 标识
      */
-    public static final String CONSULTANT = "consultant";
-
-    /**
-     * VIP客户 标识
-     */
-    public static final String VIP_USER = "vip_user";
-
-    /**
-     * 商家 标识
-     */
-    public static final String MERCHANT = "merchant";
+    public static final String NORMAL_USER = "normal_user";
 }
