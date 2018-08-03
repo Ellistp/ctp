@@ -91,29 +91,31 @@
                     </a>
                 </li>
 
-                <li class="">
-                    <a href="javascript:;">
-                        <i class="fa fa-gears"></i><span class="title"> 系统管理 </span><span
-                            class="arrow "> </span>
-                    </a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="javascript:;">
-                                用户管理
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                角色管理
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                权限管理
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                <shiro:hasAnyRoles name="admin">
+                    <li class="">
+                        <a href="javascript:;">
+                            <i class="fa fa-gears"></i><span class="title"> 系统管理 </span><span
+                                class="arrow "> </span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="javascript:;">
+                                    用户管理
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">
+                                    角色管理
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">
+                                    权限管理
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </shiro:hasAnyRoles>
 
                 <li class="">
                     <a href="javascript:;">
@@ -121,36 +123,20 @@
                             class="arrow "> </span>
                     </a>
                     <ul class="sub-menu">
-                        <li>
-                            <a href="javascript:;">
-                                信息修改
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                密码修改
-                            </a>
-                        </li>
-
-                        <!-- 测试权限控制 -->
-                        <shiro:hasAnyRoles name="super_admin">
-                            <%--<li>--%>
-                                <%--<a href="javascript:;">super_admin 拥有此角色</a>--%>
-                            <%--</li>--%>
-                        </shiro:hasAnyRoles>
-
-                        <shiro:hasPermission name="user:create">
-                            <%--<li>--%>
-                                <%--<a href="javascript:;">user:create 拥有此权限</a>--%>
-                            <%--</li>--%>
-                        </shiro:hasPermission>
-
                         <shiro:hasPermission name="user:update">
-                            <%--<li>--%>
-                                <%--<a href="javascript:;">user:update 拥有此权限</a>--%>
-                            <%--</li>--%>
+                            <li>
+                                <a href="javascript:;">
+                                    信息修改
+                                </a>
+                            </li>
                         </shiro:hasPermission>
-
+                        <shiro:hasPermission name="user:update">
+                            <li>
+                                <a href="javascript:;">
+                                    密码修改
+                                </a>
+                            </li>
+                        </shiro:hasPermission>
                     </ul>
                 </li>
 
