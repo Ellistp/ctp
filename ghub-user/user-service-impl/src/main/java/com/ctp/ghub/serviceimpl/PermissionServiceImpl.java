@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
  * @description
  * @date 2018/7/25
  */
-@Service
+@Service("permissionService")
 public class PermissionServiceImpl implements PermissionService{
 
     @Autowired

@@ -1,7 +1,5 @@
 package com.ctp.ghub.serviceimpl;
 
-import java.util.List;
-
 import com.ctp.ghub.dao.RoleDao;
 import com.ctp.ghub.model.RoleDO;
 import com.ctp.ghub.service.RoleService;
@@ -13,7 +11,7 @@ import org.springframework.stereotype.Service;
  * @description
  * @date 2018/7/25
  */
-@Service
+@Service("roleService")
 public class RoleServiceImpl implements RoleService{
 
     @Autowired

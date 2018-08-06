@@ -1,13 +1,10 @@
 package com.ctp.ghub.serviceimpl;
 
-import com.ctp.ghub.param.LoginQueryParam;
-import com.ctp.ghub.service.UserService;
 import com.ctp.ghub.dao.UserDao;
 import com.ctp.ghub.model.UserDO;
+import com.ctp.ghub.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 /**
  * Created by Administrator on 2018/5/12 0012.

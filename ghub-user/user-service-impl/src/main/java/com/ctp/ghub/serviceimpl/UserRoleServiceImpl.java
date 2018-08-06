@@ -3,7 +3,6 @@ package com.ctp.ghub.serviceimpl;
 import java.util.List;
 
 import com.ctp.ghub.dao.UserRoleDao;
-import com.ctp.ghub.model.RoleDO;
 import com.ctp.ghub.model.UserRoleDO;
 import com.ctp.ghub.service.UserRoleService;
 import org.springframework.beans.factory.annotation.Autowired;

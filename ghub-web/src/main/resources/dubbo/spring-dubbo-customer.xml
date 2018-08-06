@@ -20,6 +20,9 @@
     <dubbo:reference id="userService" interface="com.ctp.ghub.service.UserService" timeout="1200000"/>
     <dubbo:reference id="userRoleService" interface="com.ctp.ghub.service.UserRoleService" timeout="1200000"/>
     <dubbo:reference id="logService" interface="com.ctp.ghub.service.LogService" timeout="1200000"/>
+    <dubbo:reference id="rolePermissionService" interface="com.ctp.ghub.service.RolePermissionService" timeout="1200000"/>
+    <dubbo:reference id="roleService" interface="com.ctp.ghub.service.RoleService" timeout="1200000"/>
+    <dubbo:reference id="permissionService" interface="com.ctp.ghub.service.PermissionService" timeout="1200000"/>
 
     <!-- 开发环境配置 -->
     <beans profile="dev">
