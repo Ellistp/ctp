@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @date 2018/7/31
  */
 @Controller
-@RequestMapping("/api/ghub")
 public class PageController {
 
     /**

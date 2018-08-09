@@ -11,7 +11,7 @@
         <property name="securityManager" ref="securityManager"/>
         <property name="loginUrl" value="/api/ghub/loginPage"/>
         <property name="successUrl" value="/index"/>
-        <property name="unauthorizedUrl" value="/api/ghub/401"/>
+        <property name="unauthorizedUrl" value="/401"/>
         <property name="filters">
             <util:map>
                 <entry key="user" value-ref="shiroUserFilter"/>
@@ -50,11 +50,11 @@
     <bean id = "securityRealm" class="com.ctp.ghub.security.SecurityRealm"></bean>
 
     <!-- 密码比较器 -->
-    <!--<bean id="credentialsMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">-->
-        <!--<property name="hashAlgorithmName" value="md5"/>-->
-        <!--<property name="hashIterations" value="2"/>-->
-        <!--<property name="storedCredentialsHexEncoded" value="true"/>-->
-    <!--</bean>-->
+    <bean id="credentialsMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+        <property name="hashAlgorithmName" value="md5"/>
+        <property name="hashIterations" value="2"/>
+        <property name="storedCredentialsHexEncoded" value="true"/>
+    </bean>
 
     <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
         <property name="securityManager" ref="securityManager"/>

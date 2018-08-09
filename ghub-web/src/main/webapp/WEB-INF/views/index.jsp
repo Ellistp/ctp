@@ -85,7 +85,7 @@
                 </li>
 
                 <li class="start active">
-                    <a href="/api/ghub/dashboard" id="btn-dashboard">
+                    <a href="/dashboard" id="btn-dashboard">
                         <i class="fa fa-home"></i><span class="title"> 首页 </span><span
                             class="selected"> </span>
                     </a>
