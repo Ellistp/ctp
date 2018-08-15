@@ -13,6 +13,9 @@ import com.ctp.ghub.model.LoginReqData;
 import com.ctp.ghub.model.UserDO;
 import com.ctp.ghub.service.UserService;
 import com.ctp.ghub.serviceimpl.PasswordEncryptService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -33,6 +36,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @description
  * @date 2018/7/20
  */
+@Api(value="login controller",description="系统登录相关")
 @Controller
 @RequestMapping("/api/ghub")
 public class LoginController {
@@ -44,6 +48,7 @@ public class LoginController {
     PasswordEncryptService passwordEncryptService;
 
     @RequestMapping(value = "/loginPage",method = RequestMethod.GET)
+    @ApiOperation(value="登录页面",notes="登录页面跳转",httpMethod = "GET")
     public ModelAndView loginPage(){
         return new ModelAndView("login");
     }
@@ -54,7 +59,8 @@ public class LoginController {
      * @throws IOException
      */
     @RequestMapping(value = "/login",method = RequestMethod.POST)
-    public String login(@Valid LoginReqData loginReqData, BindingResult result, Model model, HttpServletRequest request) throws IOException {
+    @ApiOperation(value="登录系统",notes="登录系统操作",httpMethod = "POST")
+    public String login(@ApiParam(name="LoginReqData实体",value="json格式",required=true)@Valid LoginReqData loginReqData, BindingResult result, Model model, HttpServletRequest request) throws IOException {
         try {
             Subject subject = SecurityUtils.getSubject();
             // 已登陆则 跳到首页
@@ -85,6 +91,7 @@ public class LoginController {
      * @return
      */
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    @ApiOperation(value="登出页面",notes="登出系统操作",httpMethod = "GET")
     public String logout(HttpSession session) {
         session.removeAttribute(Constant.SESSION_LOGIN_USER);
         // 登出操作
@@ -99,6 +106,7 @@ public class LoginController {
     @RequestMapping(value = "/admin")
     @ResponseBody
     @RequiresRoles(value = RoleSignConstant.ADMIN)
+    @ApiOperation(value="admin权限",notes="admin权限判断",httpMethod = "GET")
     public String admin() {
         return "拥有admin角色,能访问";
     }
@@ -109,6 +117,7 @@ public class LoginController {
     @RequestMapping(value = "/create")
     @ResponseBody
     @RequiresPermissions(value = PermissionSignConstant.USER_CREATE)
+    @ApiOperation(value="user_create权限",notes="user_create权限判断",httpMethod = "GET")
     public String create() {
         return "拥有user:create权限,能访问";
     }
