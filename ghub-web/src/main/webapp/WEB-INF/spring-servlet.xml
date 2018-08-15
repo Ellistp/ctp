@@ -70,9 +70,6 @@
         <property name="maxInMemorySize" value="40960"/>
     </bean>
 
-    <!-- 将 springSwaggerConfig加载到spring容器 -->
-    <bean class="com.mangofactory.swagger.configuration.SpringSwaggerConfig" />
-
     <!-- 配置全局异常处理器 -->
     <bean id="exceptionResolver" class="com.ctp.ghub.exception.SpringGlobalExceptionHandler"/>
 </beans>

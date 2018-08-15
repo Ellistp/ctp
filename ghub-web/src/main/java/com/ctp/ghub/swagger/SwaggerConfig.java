@@ -1,14 +1,15 @@
 package com.ctp.ghub.swagger;
 
-import com.mangofactory.swagger.configuration.SpringSwaggerConfig;
-import com.mangofactory.swagger.models.dto.ApiInfo;
-import com.mangofactory.swagger.plugin.EnableSwagger;
-import com.mangofactory.swagger.plugin.SwaggerSpringMvcPlugin;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * @author chengtianping
@@ -16,44 +17,24 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
  * @date 2018/8/14
  */
 @Configuration
-@EnableSwagger
-@ComponentScan(basePackages = {"com.ctp.ghub.controller"})
-@EnableWebMvc
+@EnableSwagger2
 public class SwaggerConfig {
 
-    private SpringSwaggerConfig springSwaggerConfig;
-
-    /**
-     * Required to autowire SpringSwaggerConfig
-     */
-    @Autowired
-    public void setSpringSwaggerConfig(SpringSwaggerConfig springSwaggerConfig)
-    {
-        this.springSwaggerConfig = springSwaggerConfig;
-    }
-
-    /**
-     * Every SwaggerSpringMvcPlugin bean is picked up by the swagger-mvc
-     * framework - allowing for multiple swagger groups i.e. same code base
-     * multiple swagger resource listings.
-     */
     @Bean
-    public SwaggerSpringMvcPlugin customImplementation()
-    {
-        return new SwaggerSpringMvcPlugin(this.springSwaggerConfig)
-            .apiInfo(apiInfo())
-            .includePatterns(".*?");
+    public Docket buildDocket(){
+        return new Docket(DocumentationType.SWAGGER_2)
+            .apiInfo(buildApiInfo())
+            .select() .apis(RequestHandlerSelectors.basePackage("com.ctp.ghub.controller"))
+            .paths(PathSelectors.any())
+            .build();
     }
 
-    private ApiInfo apiInfo()
-    {
-        ApiInfo apiInfo = new ApiInfo(
-            "springmvc搭建swagger",
-            "spring-API swagger测试",
-            "My Apps API terms of service",
-            "1653493637@qq.com",
-            "web app",
-            "My Apps API License URL");
-        return apiInfo;
+    private ApiInfo buildApiInfo(){
+        return new ApiInfoBuilder()
+            .title("swagger ui")
+            .termsOfServiceUrl("https://blog.csdn.net/T2080305/article/details/81703752")
+            .description("springmvc-swagger2")
+            .contact(new Contact("Ellis@Tian", "https://blog.csdn.net/T2080305/article/details/81703752", "1653493637@qq.com"))
+            .build();
     }
 }
