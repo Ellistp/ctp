@@ -63,10 +63,10 @@
 
     <!-- 使用annotation注解方式配置事务 当注释中发现@Transactional时，使用id为transactionManager的事务管理器-->
     <!-- 如果没有设置transaction-manager的值，则spring以缺省默认的事务管理器来处理事务，默认事务管理器为第一个加载的事务管理器 -->
-    <tx:annotation-driven transaction-manager="transactionManager"/>
+    <tx:annotation-driven/>
 
     <!-- 事务管理 通知 -->
-    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+    <tx:advice id="txAdvice">
         <tx:attributes>
             <!-- 对insert,update,delete 开头的方法进行事务管理,只要有异常就回滚 -->
             <tx:method name="insert*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
@@ -76,7 +76,7 @@
             <tx:method name="select*" read-only="true"/>
             <tx:method name="count*" read-only="true"/>
             <!-- 对其他方法 使用默认的事务管理 -->
-            <tx:method name="*"/>
+            <tx:method name="*" rollback-for="java.lang.Exception"/>
         </tx:attributes>
     </tx:advice>
 
