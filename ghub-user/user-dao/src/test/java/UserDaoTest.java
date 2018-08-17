@@ -13,7 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * Created by Administrator on 2018/5/20 0020.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({"classpath:common-jdbc.xml"})
+@ContextConfiguration({"classpath:jdbc/common-jdbc.xml"})
 public class UserDaoTest extends BaseSpringJunitTest {
 
     @Autowired

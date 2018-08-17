@@ -16,7 +16,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * @date 2018/5/22
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({"classpath:common-jdbc.xml"})
+@ContextConfiguration({"classpath:jdbc/common-jdbc.xml"})
 public class LogDaoTest extends BaseSpringJunitTest {
 
     @Autowired

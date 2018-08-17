@@ -7,7 +7,7 @@
     <!-- 服务层的配置文件 导入进来 在web.xml中context-param 初始化-->
     <!-- common xml -->
     <import resource="classpath:redis/common-redis.xml"/>
-    <import resource="classpath:common-jdbc.xml"/>
+    <import resource="classpath:jdbc/common-jdbc.xml"/>
     <import resource="classpath:activemq/common-activemq.xml"/>
     <import resource="classpath:dubbo/common-dubbo.xml"/>
     <!-- service xml -->
