@@ -88,6 +88,6 @@ public class XssFilterUtils {
     }
 
     public static void main(String args[]){
-        System.out.println(replseAllHtml("<div class=\"home-container\">dfdfdf</div>"));
+        System.out.println(replseAllHtml("<p><a href='http://blog.csdn.net/xyw_eliot' onclick='stealCookies()'> Eliot </a></p>"));
     }
 }
