@@ -62,11 +62,20 @@
     </bean>
 
     <!-- 使用annotation注解方式配置事务 当注释中发现@Transactional时，使用id为transactionManager的事务管理器-->
-    <!-- 如果没有设置transaction-manager的值，则spring以缺省默认的事务管理器来处理事务，默认事务管理器为第一个加载的事务管理器 -->
-    <tx:annotation-driven/>
+    <!-- 如果没有设置transaction-manager的值，则spring以缺省默认的事务管理器来处理事务，默认事务管理器为第一个加载的事务管理器,也就是上面的transactionManager -->
+    <!--<tx:annotation-driven transaction-manager="transactionManager"/>-->
+    <!--<tx:annotation-driven/>-->
+
+    <!-- 事务 aop 配置 -->
+    <aop:config>
+        <!-- 配置切点方法，目标方法是 com.ctp.ghub.serviceimpl 包中所有的方法-->
+        <aop:pointcut id="serviceMethods" expression="execution(* com.ctp.ghub.serviceimpl..*(..))"/>
+        <!-- 引用事物增强 完成事物切面 -->
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethods"/>
+    </aop:config>
 
     <!-- 事务管理 通知 -->
-    <tx:advice id="txAdvice">
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
         <tx:attributes>
             <!-- 对insert,update,delete 开头的方法进行事务管理,只要有异常就回滚 -->
             <tx:method name="insert*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
@@ -79,12 +88,6 @@
             <tx:method name="*" rollback-for="java.lang.Exception"/>
         </tx:attributes>
     </tx:advice>
-
-    <!-- 事务 aop 配置 -->
-    <aop:config>
-        <aop:pointcut id="serviceMethods" expression="execution(* com.ctp.ghub.serviceimpl..*(..))"/>
-        <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethods"/>
-    </aop:config>
 
     <!-- 开发环境配置 -->
     <beans profile="dev">
