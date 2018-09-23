@@ -66,7 +66,7 @@
     <!--<tx:annotation-driven transaction-manager="transactionManager"/>-->
     <!--<tx:annotation-driven/>-->
 
-    <!-- 事务 aop 配置 -->
+    <!-- 使用XML配置声明式事务 aop 配置 -->
     <aop:config>
         <!-- 配置切点方法，目标方法是 com.ctp.ghub.serviceimpl 包中所有的方法-->
         <aop:pointcut id="serviceMethods" expression="execution(* com.ctp.ghub.serviceimpl..*(..))"/>
