@@ -71,11 +71,11 @@
     <aop:config>
         <!-- 配置切点方法，目标方法是 com.ctp.ghub.serviceimpl 包中所有的方法-->
         <aop:pointcut id="serviceMethods" expression="execution(* com.ctp.ghub.serviceimpl..*(..))"/>
-        <!-- 引用事物增强 完成事物切面 -->
+        <!-- advisor 切面将切点和增强组装起来 -->
         <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethods"/>
     </aop:config>
 
-    <!-- 事务管理 通知 -->
+    <!-- 事务管理 增强 -->
     <tx:advice id="txAdvice" transaction-manager="transactionManager">
         <tx:attributes>
             <!-- 对insert,update,delete 开头的方法进行事务管理,只要有异常就回滚 -->

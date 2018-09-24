@@ -25,7 +25,8 @@
     <task:annotation-driven/>
 
     <!-- 启动对@AspectJ注解的支持 proxy-target-class设置为true表示通知spring使用
-    cglib而不是jdk的来生成代理方法，这样AOP可以拦截到Controller -->
+    cglib而不是jdk的来生成代理方法，这样AOP可以拦截到Controller，这里需要注意的是CGLib动态代理采用动态
+     创建子类的方式生成代理对象，所以目标类中的方法如果要想被aop代理，方法不能被描述为private,final的类型-->
     <aop:aspectj-autoproxy proxy-target-class="true"/>
 
     <!-- 使用fastjson 配置 ,支持转化的请求数据类型为三种 -->

@@ -15,7 +15,8 @@ import org.springframework.stereotype.Component;
 
 /**
  * @author chengtianping
- * @description
+ * @description 切面aspect由切点和增强组成，包括了横切逻辑的定义和连接点的定义，spring aop就是负责实施切面的框架
+ * 它将切面所定义的横切逻辑织入到切面所定义的连接点中
  * @date 2018/5/22
  */
 @Component
