@@ -49,6 +49,7 @@
     </bean>
 
     <!-- mybatis 映射dao 和 mybatis sql id ,由于这里使用到了MapperScanner,所以dao不要使用注解扫描-->
+    <!-- 可以将映射接口直接转化成spring容器中的bean，在service中可以直接使用注解将bean注入进来 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <!-- 使用,号配置多个dao -->
         <!--<property name="basePackage" value="com.peop.user.dao,com.peop.question.dao,com.peop.exam.dao" />-->
